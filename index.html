@@ -3,38 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autonomous AI Agent Truth Boundary & Guardrails Kit (2026) | PHI-BRAIN Digital</title>
+    <title>Autonomous AI Agent Truth Boundary & Guardrails Kit (2026) | PHI-BRAIN</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-950 text-gray-100 font-sans min-h-screen flex flex-col justify-between">
+<body class="bg-gray-950 text-gray-100 font-sans min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-black">
     <div class="max-w-3xl mx-auto px-6 py-16">
         <div class="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono rounded-full mb-6">
-            INSTANT DIGITAL ACCESS • €29
+            <i class="fa-solid fa-shield-halved mr-1"></i> PRODUCTION READY • €29 ($30 USDC)
         </div>
         <h1 class="text-4xl md:text-5xl font-black tracking-tight text-white mb-6 leading-tight">
-            Autonomous AI Agent Truth Boundary & Guardrails Kit (2026)
+            Autonomous AI Agent Truth Boundary & Guardrails Kit
         </h1>
         <p class="text-xl text-gray-400 mb-8 leading-relaxed">
-            Complete production-ready fail-closed guardrails, append-only deterministic SHA-256 evidence ledger, and agent governance blueprints for Python.
+            Stop LLM hallucinations from corrupting production workflows. A fail-closed, deterministic execution standard and append-only SHA-256 evidence ledger protocol for Python multi-agent systems.
         </p>
         
         <div class="bg-gray-900 border border-gray-800 rounded-xl p-8 mb-10 shadow-2xl">
             <h2 class="text-lg font-bold text-white mb-4">Included in this bundle:</h2>
             <ul class="space-y-3 text-gray-300 text-sm font-mono mb-8">
-                <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> guardrails.py (349 bytes)</li><li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> ARCHITECTURE_BLUEPRINT.md (200 bytes)</li>
+                <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> guardrails.py (Lightweight Fail-Closed Runtime)</li>
+                <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> ARCHITECTURE_BLUEPRINT.md (Deterministic Ledger Spec)</li>
+                <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> pyproject.toml & Production Deploy Scripts</li>
+                <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Commercial MIT License for Unlimited Client Projects</li>
             </ul>
-            <div class="pt-6 border-t border-gray-800 flex items-center justify-between">
+            <div class="pt-6 border-t border-gray-800 flex items-center justify-between flex-wrap gap-4">
                 <div>
                     <span class="text-xs text-gray-500 uppercase tracking-wider block">One-time payment</span>
-                    <span class="text-3xl font-black text-white">€29</span>
+                    <span class="text-3xl font-black text-white">€29 <span class="text-sm font-normal text-gray-400">/ $30 USDC</span></span>
                 </div>
-                <!-- Stripe Payment Link or LemonSqueezy / Payhip Checkout Button -->
-                <button class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-8 py-4 rounded-lg shadow-lg hover:shadow-emerald-500/20 transition cursor-pointer">
-                    Get Instant Access (€29)
+                
+                <button onclick="document.getElementById('checkout-modal').classList.remove('hidden')" class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-8 py-4 rounded-lg shadow-lg hover:shadow-emerald-500/20 transition cursor-pointer flex items-center gap-2">
+                    <i class="fa-solid fa-bolt"></i> Get Instant Access (€29)
                 </button>
             </div>
         </div>
+
+        <!-- Open Source Core Reference -->
+        <div class="border border-gray-800/80 bg-gray-900/40 rounded-xl p-6 text-sm text-gray-400 flex items-center justify-between">
+            <div>
+                <p class="font-bold text-white mb-1"><i class="fa-brands fa-github text-emerald-400 mr-2"></i>Looking for the free open-source core?</p>
+                <p>Inspect the source code, run tests, or star the repo directly on GitHub.</p>
+            </div>
+            <a href="https://github.com/charlysmoky2010-hub/ai-guardrails-protocol" target="_blank" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded font-medium transition text-xs whitespace-nowrap">
+                View on GitHub
+            </a>
+        </div>
     </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="document.getElementById('checkout-modal').classList.add('hidden')" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h3 class="text-xl font-bold text-white mb-2">Instant Checkout (€29)</h3>
+            <p class="text-xs text-gray-400 mb-6">Choose your preferred payment method to receive immediate access.</p>
+
+            <!-- Payment Method: Web3 / USDC / USDT -->
+            <div class="bg-gray-950 border border-gray-800 rounded-xl p-4 mb-4">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm font-bold text-emerald-400 flex items-center gap-2">
+                        <i class="fa-brands fa-ethereum"></i> Pay with Crypto (USDC / USDT / ETH)
+                    </span>
+                    <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-mono">Instant & Zero Fee</span>
+                </div>
+                <p class="text-xs text-gray-400 mb-3">Send $30 USDC/USDT on Ethereum, Arbitrum, or Polygon to:</p>
+                <div class="flex items-center gap-2 bg-gray-900 p-2.5 rounded border border-gray-800 font-mono text-xs text-gray-300 break-all select-all">
+                    <span id="wallet-addr">0xc73170001f99Be6f62c07adA22727c1683Da1145</span>
+                </div>
+                <button onclick="navigator.clipboard.writeText('0xc73170001f99Be6f62c07adA22727c1683Da1145'); alert('Address copied to clipboard!');" class="w-full mt-3 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded text-xs font-bold transition flex items-center justify-center gap-2">
+                    <i class="fa-regular fa-copy"></i> Copy Wallet Address
+                </button>
+            </div>
+
+            <!-- Payment Method: PayPal / Card -->
+            <div class="bg-gray-950 border border-gray-800 rounded-xl p-4">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm font-bold text-blue-400 flex items-center gap-2">
+                        <i class="fa-brands fa-paypal"></i> Pay with PayPal / Credit Card
+                    </span>
+                </div>
+                <p class="text-xs text-gray-400 mb-3">Pay securely with any credit card or PayPal account:</p>
+                <a id="paypal-link" href="https://paypal.me/charlysmoky/29EUR" target="_blank" class="w-full py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded text-xs font-bold transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-paypal"></i> Continue with PayPal (€29)
+                </a>
+            </div>
+
+            <p class="text-[10px] text-gray-500 text-center mt-4">
+                After payment, bundle files download automatically. Verified by PHI-BRAIN Systems.
+            </p>
+        </div>
+    </div>
+
     <footer class="border-t border-gray-900 py-6 text-center text-xs text-gray-600 font-mono">
         Generated autonomously by PHI-BRAIN Digital Commerce Engine • Zero manual intervention
     </footer>
