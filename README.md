@@ -1,67 +1,64 @@
-# 🛡️ AI Guardrails Protocol
+# 🛡️ AI Guardrails Protocol (v0.1.0 - Early Prototype)
 
-> **Fail-closed, zero-latency execution & truth boundary guardrails for autonomous AI agent architectures.**
+> **A small, free, MIT-licensed Python module built around one fundamental rule for autonomous AI agents: A CLAIM IS NOT EVIDENCE.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/)
-[![Truth Boundary](https://img.shields.io/badge/Epistemic_Standard-CERBERRUS144-purple.svg)](https://github.com/charlysmoky2010-hub)
+[![Status](https://img.shields.io/badge/Status-Early_Prototype-orange.svg)](https://github.com/charlysmoky2010-hub/ai-guardrails-protocol)
 
 ---
 
-### The Problem
-Most AI agent frameworks allow LLMs to declare their own success ("The task is complete and verified!"). In high-stakes production environments, this self-evaluative hallucination leads to financial leakage, unverified API calls, and corrupt state graphs.
+### Why this exists
+Most autonomous agent frameworks allow an LLM to declare its own completion and success:
+```text
+Agent: "Task is verified and complete!" -> Accepted silently by runtime
+```
+This self-evaluative hallucination is unsafe. This tiny prototype provides a deterministic gate: **an agent cannot mark its own observation as `VERIFIED` without an independent external verifier**. 
 
-### The Solution: `CLAIM ≠ EVIDENCE`
-This protocol enforces strict, deterministic **epistemic boundaries**:
-- **Fail-Closed Execution:** Any action without explicit evidence fails immediately.
-- **Independent Verification Gate:** No agent can set its own state to `VERIFIED`.
-- **Zero-Dependency Core:** Ultra-lightweight Python implementation with zero runtime bloat.
+Attempting to self-verify raises an immediate `GuardrailViolation` exception instead of passing silently.
+
+---
+
+### Usage Example
 
 ```python
 from guardrails import TruthBoundaryEnforcer, GuardrailViolation
 
-observation = {
-    "entity": "github_metrics",
-    "metric": "stars",
-    "value": 1500,
+# 1. Unverified observation passes cleanly into the state graph:
+valid_record = {
+    "entity": "github_stats",
     "state": "OBSERVED",
-    "verification_status": "UNVERIFIED" # Kept strictly unverified until cross-audited
+    "verification_status": "UNVERIFIED"
+}
+TruthBoundaryEnforcer.validate_observation(valid_record) # OK
+
+# 2. Self-proclaimed VERIFIED observation is blocked fail-closed:
+hallucinated_record = {
+    "entity": "revenue",
+    "state": "OBSERVED",
+    "verification_status": "VERIFIED" # Missing independent_verifier!
 }
 
-# Passes seamlessly
-TruthBoundaryEnforcer.validate_observation(observation)
-
-# Blocks immediately:
-fake_claim = {"entity": "sales", "verification_status": "VERIFIED"}
-TruthBoundaryEnforcer.validate_observation(fake_claim) 
-# -> Raises GuardrailViolation: EPISTEMIC BREACH
+try:
+    TruthBoundaryEnforcer.validate_observation(hallucinated_record)
+except GuardrailViolation as e:
+    print(f"Blocked: {e}")
+    # Output: EPISTEMIC BREACH: Record 'revenue' cannot claim VERIFIED without an external 'independent_verifier'.
 ```
 
 ---
 
-## 📦 Production Architecture Blueprint (€29)
-Need full multi-agent orchestration, append-only SHA-256 evidence ledgers, and automated compliance auditing?
-- [👉 Get the Full Production Kit & Architecture Blueprint (€29)](https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/)
+### MCP Server (Experimental)
+An entry point for Model Context Protocol is included in `mcp_server.py`. You can inspect and test it with Claude Desktop or Cursor.
+
+---
+
+### Current Status & Limitations
+- **Early Prototype:** This is a minimalist reference implementation (alpha).
+- **No Paid Version:** There is no paid tier or upsell. The code is completely free and open source under MIT.
+- **Warranty:** Provided as-is without warranty. Feedback, issues, and contributions are welcome.
 
 ---
 
 ## License
-MIT License. Created by PHI-BRAIN Systems.
-
----
-
-## ⚡ Model Context Protocol (MCP) Support
-
-Run as a native MCP server for Claude Desktop, Cursor, or your local agent framework:
-
-```bash
-# Add to your claude_desktop_config.json:
-{
-  "mcpServers": {
-    "truth-guardrails": {
-      "command": "python3",
-      "args": ["-m", "mcp_server"]
-    }
-  }
-}
-```
+MIT License. Copyright (c) 2026 Yusuf Sen / PHI-BRAIN Systems.
