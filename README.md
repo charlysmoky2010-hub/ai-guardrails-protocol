@@ -47,3 +47,21 @@ Need full multi-agent orchestration, append-only SHA-256 evidence ledgers, and a
 
 ## License
 MIT License. Created by PHI-BRAIN Systems.
+
+---
+
+## ⚡ Model Context Protocol (MCP) Support
+
+Run as a native MCP server for Claude Desktop, Cursor, or your local agent framework:
+
+```bash
+# Add to your claude_desktop_config.json:
+{
+  "mcpServers": {
+    "truth-guardrails": {
+      "command": "python3",
+      "args": ["-m", "mcp_server"]
+    }
+  }
+}
+```
