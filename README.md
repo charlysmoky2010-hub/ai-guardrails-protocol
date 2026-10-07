@@ -27,7 +27,7 @@ valid_record = {
 }
 TruthBoundaryEnforcer.validate_observation(valid_record) # OK
 
-# 2. Self-proclaimed VERIFIED observation is blocked fail-closed:
+# 2. Self-proclaimed VERIFIED observation is blocked blocked:
 hallucinated_record = {
     "entity": "revenue",
     "state": "OBSERVED",

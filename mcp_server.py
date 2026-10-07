@@ -1,11 +1,12 @@
 """
-Model Context Protocol (MCP) Server for PHI-BRAIN Truth Boundary Guardrails.
-Enables instant plug-and-play guardrail evaluation for Claude Desktop, Cursor, and Agent runtimes.
+Model Context Protocol (MCP) Server for PHI-BRAIN Truth Boundary Guardrails & Independent Verifier.
+Enables instant plug-and-play guardrail evaluation and independent evidence verification for Claude Desktop, Cursor, and Agent runtimes.
 """
 
 import sys
 import json
 from guardrails import TruthBoundaryEnforcer, GuardrailViolation
+from independent_verifier import IndependentVerifier
 
 def handle_rpc_call(request: dict) -> dict:
     req_id = request.get("id")
@@ -30,6 +31,34 @@ def handle_rpc_call(request: dict) -> dict:
                                 "independent_verifier": {"type": "string"}
                             },
                             "required": ["entity", "state", "verification_status"]
+                        }
+                    },
+                    {
+                        "name": "verify_evidence",
+                        "description": "Independent Verifier: Evaluates whether raw/unverified evidence records strictly satisfy explicit criteria to substantiate a claim. Never trusts input state.",
+                        "inputSchema": {
+                            "type": "object",
+                            "properties": {
+                                "claim": {
+                                    "type": "object",
+                                    "description": "The claim object (claim_id, claim_type, entity, asserted_value, producer_id, etc.)"
+                                },
+                                "evidence_records": {
+                                    "type": "array",
+                                    "items": {"type": "object"},
+                                    "description": "List of raw/normalized unverified evidence dictionaries."
+                                },
+                                "criteria": {
+                                    "type": "array",
+                                    "items": {"type": "string"},
+                                    "description": "Explicit verification criteria (e.g. same_entity, calculation_reproducible, compatible_periods, etc.)"
+                                },
+                                "verifier_id": {
+                                    "type": "string",
+                                    "description": "Identifier of the independent verifier."
+                                }
+                            },
+                            "required": ["claim", "evidence_records", "criteria"]
                         }
                     }
                 ]
@@ -59,6 +88,31 @@ def handle_rpc_call(request: dict) -> dict:
                         "isError": True
                     }
                 }
+
+        elif tool_name == "verify_evidence":
+            claim_in = args.get("claim", {})
+            ev_list = args.get("evidence_records", [])
+            crit = args.get("criteria", [])
+            v_id = args.get("verifier_id", "MCP_INDEPENDENT_VERIFIER")
+
+            verifier = IndependentVerifier(verifier_id=v_id)
+            record = verifier.verify(claim=claim_in, evidence_records=ev_list, criteria=crit)
+
+            return {
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "content": [{
+                        "type": "text",
+                        "text": json.dumps({
+                            "decision": record["decision"],
+                            "decision_reason": record["decision_reason"],
+                            "verification_record": record,
+                            "limitations": record["limitations"]
+                        }, indent=2)
+                    }]
+                }
+            }
                 
     return {
         "jsonrpc": "2.0",
