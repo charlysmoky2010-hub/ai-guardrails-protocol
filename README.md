@@ -1,19 +1,14 @@
-# 🛡️ AI Guardrails Protocol (v0.1.0 - Early Prototype)
+# 🛡️ AI Guardrails Protocol (v0.1.0)
 
 > **A small, free, MIT-licensed Python module built around one fundamental rule for autonomous AI agents: A CLAIM IS NOT EVIDENCE.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/)
-[![Status](https://img.shields.io/badge/Status-Early_Prototype-orange.svg)](https://github.com/charlysmoky2010-hub/ai-guardrails-protocol)
 
 ---
 
 ### Why this exists
-Most autonomous agent frameworks allow an LLM to declare its own completion and success:
-```text
-Agent: "Task is verified and complete!" -> Accepted silently by runtime
-```
-This self-evaluative hallucination is unsafe. This tiny prototype provides a deterministic gate: **an agent cannot mark its own observation as `VERIFIED` without an independent external verifier**. 
+Most autonomous agent frameworks allow an LLM to declare its own completion and success. This self-evaluative hallucination is unsafe. This prototype provides a deterministic gate: **an agent cannot mark its own observation as `VERIFIED` without an independent external verifier**. 
 
 Attempting to self-verify raises an immediate `GuardrailViolation` exception instead of passing silently.
 
@@ -43,20 +38,30 @@ try:
     TruthBoundaryEnforcer.validate_observation(hallucinated_record)
 except GuardrailViolation as e:
     print(f"Blocked: {e}")
-    # Output: EPISTEMIC BREACH: Record 'revenue' cannot claim VERIFIED without an external 'independent_verifier'.
 ```
 
 ---
 
-### MCP Server (Experimental)
-An entry point for Model Context Protocol is included in `mcp_server.py`. You can inspect and test it with Claude Desktop or Cursor.
+### MCP Server Configuration
+An entry point for Model Context Protocol is included in `mcp_server.py`. You can configure it in Claude Desktop by adding this to your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "ai-guardrails": {
+      "command": "/opt/homebrew/bin/python3",
+      "args": ["/Users/mantzoaziz/PHI-BRAIN/digital_commerce/dist/ai-guardrails-protocol/mcp_server.py"]
+    }
+  }
+}
+```
 
 ---
 
 ### Current Status & Limitations
-- **Early Prototype:** This is a minimalist reference implementation (alpha).
-- **No Paid Version:** There is no paid tier or upsell. The code is completely free and open source under MIT.
-- **Warranty:** Provided as-is without warranty. Feedback, issues, and contributions are welcome.
+- **Prototype:** This is a minimalist reference implementation.
+- **No Paid Version:** The code is completely free and open source under MIT.
+- **Warranty:** Provided as-is without warranty.
 
 ---
 
