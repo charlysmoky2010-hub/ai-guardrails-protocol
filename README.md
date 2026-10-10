@@ -49,12 +49,14 @@ An entry point for Model Context Protocol is included in `mcp_server.py`. You ca
 {
   "mcpServers": {
     "ai-guardrails": {
-      "command": "/opt/homebrew/bin/python3",
-      "args": ["/Users/mantzoaziz/PHI-BRAIN/digital_commerce/dist/ai-guardrails-protocol/mcp_server.py"]
+      "command": "python3",
+      "args": ["/absolute/path/to/ai-guardrails-protocol/mcp_server.py"]
     }
   }
 }
 ```
+
+Replace `/absolute/path/to/ai-guardrails-protocol` with the path to your own clone.
 
 ---
 
