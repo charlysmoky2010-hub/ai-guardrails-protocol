@@ -48,3 +48,38 @@ def test_enforce_truth_boundary_verified_without_verifier_blocked():
     assert res["id"] == 3
     assert res["result"]["isError"] is True
     assert "BLOCKED" in res["result"]["content"][0]["text"]
+
+
+def test_all_tools_declare_annotations():
+    result = handle_rpc_call({"jsonrpc":"2.0","id":20,"method":"tools/list"})
+    tools = result["result"]["tools"]
+    assert {t["name"] for t in tools} == {"enforce_truth_boundary", "verify_evidence"}
+    for tool in tools:
+        assert tool["annotations"] == {
+            "readOnlyHint": True,
+            "destructiveHint": False,
+            "idempotentHint": True,
+            "openWorldHint": False,
+        }
+
+
+def test_verify_evidence_rejects_unsubstantiated_claim():
+    request = {
+        "jsonrpc": "2.0",
+        "id": 21,
+        "method": "tools/call",
+        "params": {
+            "name": "verify_evidence",
+            "arguments": {
+                "claim": {"claim_id": "UNSUPPORTED", "producer_id": "AGENT_A",
+                          "claim_type": "NUMERICAL", "entity": "X",
+                          "metric": "revenue", "asserted_value": 123},
+                "evidence_records": [],
+                "criteria": ["same_entity"]
+            }
+        }
+    }
+    response = handle_rpc_call(request)
+    assert "result" in response and "error" not in response
+    verification = json.loads(response["result"]["content"][0]["text"])
+    assert verification["decision"] != "VERIFIED"
