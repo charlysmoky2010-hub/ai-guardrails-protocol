@@ -22,7 +22,7 @@ def handle_rpc_call(request: dict) -> dict:
                     {
                         "name": "enforce_truth_boundary",
                         "description": "Evaluates an observation state. Blocks unverified claims before state transition.",
-                        "annotations": {"readOnlyHint": true, "destructiveHint": false, "idempotentHint": true, "openWorldHint": false},
+                        "annotations": {"readOnlyHint": True, "destructiveHint": False, "idempotentHint": True, "openWorldHint": False},
                         "inputSchema": {
                             "type": "object",
                             "properties": {
@@ -37,7 +37,7 @@ def handle_rpc_call(request: dict) -> dict:
                     {
                         "name": "verify_evidence",
                         "description": "Independent Verifier: Evaluates whether raw/unverified evidence records strictly satisfy explicit criteria to substantiate a claim. Never trusts input state.",
-                        "annotations": {"readOnlyHint": true, "destructiveHint": false, "idempotentHint": true, "openWorldHint": false},
+                        "annotations": {"readOnlyHint": True, "destructiveHint": False, "idempotentHint": True, "openWorldHint": False},
                         "inputSchema": {
                             "type": "object",
                             "properties": {
