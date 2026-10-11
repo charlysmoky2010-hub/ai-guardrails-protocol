@@ -81,7 +81,7 @@ Replace `/absolute/path/to/ai-guardrails-protocol` with the path to your own clo
 
 ### Related PHI NEXUS service (optional)
 
-For teams who want to assess a real AI-enabled workflow, [PHI NEXUS offers a free browser-based operational self-check](https://reverent-echo-c6ynd3a.shipstatic.com/), plus an optional human-guided 30-minute workflow discovery (€99) and a scoped review (€490). These are separate professional services, **not** a paid license, security certification or endorsement of this open-source module. The source code here remains MIT licensed and free.
+For teams who want to assess a real AI-enabled workflow, [PHI NEXUS offers a free browser-based operational self-check](https://reverent-echo-c6ynd3a.shipstatic.com/), plus an optional human-guided 30-minute workflow discovery (€99) and a scoped review (€490). For a lower-cost **self-service** alternative, the [German CERBERRUS Operational X-Ray offline workbook (€29, Gumroad)](https://smokycharly.gumroad.com/l/cyrada?utm_source=github&utm_medium=project_readme&utm_campaign=xray_sales_q4_2026&utm_content=ai_guardrails) provides a process analysis template and decision scorecard without personal consulting. These are separate optional commercial offers, **not** a paid license, security certification or endorsement of this open-source module. The source code here remains MIT licensed and free.
 
 ---
 
