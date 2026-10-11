@@ -2,6 +2,14 @@
 
 > **A small, free, MIT-licensed research prototype built around one fundamental rule for autonomous AI agents: A CLAIM IS NOT EVIDENCE.**
 
+### Jetzt ausprobieren: kostenloser KI-Workflow-Selbstcheck
+
+[**8 Kontrollfragen direkt im Browser beantworten →**](https://unveiled-seed-x7w4mw8.shipstatic.com/?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_xray_q4_2026)
+
+Ohne Anmeldung, Modell-API oder Datenupload. Ein optionaler digitaler **CERBERRUS Operational X-Ray**-Arbeitsbogen (€29, Gumroad; ggf. zusätzliche Steuern im Checkout) ist separat verlinkt. Die Eigenbewertung ersetzt keine Sicherheits- oder Compliance-Prüfung.
+
+---
+
 ### Für deutsche KI-Teams: acht Kontrollfragen
 
 Sie bauen einen KI-Agenten mit MCP, n8n oder APIs? **Vor der ersten produktiven Freigabe** sollten Werkzeugrechte, sensible Aktionen, echte Quellenprüfung, Mandantentrennung, Auditlogs, Fehlermodi, Gedächtnis und Verantwortlichkeiten geklärt sein. Unser [kostenloser 8-Fragen-Selbstcheck](https://reverent-echo-c6ynd3a.shipstatic.com/#check) hilft bei einer ersten Einordnung. Das Ergebnis ist **keine** Sicherheitsprüfung oder Zertifizierung.
