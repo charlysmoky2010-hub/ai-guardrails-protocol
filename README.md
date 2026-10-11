@@ -2,6 +2,14 @@
 
 > **A small, free, MIT-licensed research prototype built around one fundamental rule for autonomous AI agents: A CLAIM IS NOT EVIDENCE.**
 
+### Für deutsche KI-Teams: acht Kontrollfragen
+
+Sie bauen einen KI-Agenten mit MCP, n8n oder APIs? **Vor der ersten produktiven Freigabe** sollten Werkzeugrechte, sensible Aktionen, echte Quellenprüfung, Mandantentrennung, Auditlogs, Fehlermodi, Gedächtnis und Verantwortlichkeiten geklärt sein. Unser [kostenloser 8-Fragen-Selbstcheck](https://reverent-echo-c6ynd3a.shipstatic.com/#check) hilft bei einer ersten Einordnung. Das Ergebnis ist **keine** Sicherheitsprüfung oder Zertifizierung.
+
+Für **einen konkreten Workflow** gibt es bei Bedarf separat eine [persönliche 30-Minuten-Discovery für 99 €](https://reverent-echo-c6ynd3a.shipstatic.com/#angebote). Sie ersetzt **keine** Implementierung und ist nicht Bestandteil der freien MIT-Lizenz dieses Repositorys.
+
+---
+
 > **Security notice (2026-10-11):** This public version does **not** authenticate caller-supplied verifier names or primary-source metadata. A malicious agent can supply fabricated verification information that is not independently checked. Do not use it as a production security, payment, compliance or source-authenticity verifier. A local mitigation is under test; it has **not** been published to this repository.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)
