@@ -83,3 +83,32 @@ def test_verify_evidence_rejects_unsubstantiated_claim():
     assert "result" in response and "error" not in response
     verification = json.loads(response["result"]["content"][0]["text"])
     assert verification["decision"] != "VERIFIED"
+
+@pytest.mark.parametrize("claimed_verifier", [
+    "UNCONFIRMED_AGENT",
+    "INDEPENDENT_AUDITOR",
+    "HUMAN_CHECKED",
+    "MCP_INDEPENDENT_VERIFIER",
+])
+def test_caller_claimed_verified_is_not_authentication(claimed_verifier):
+    request = {
+        "jsonrpc": "2.0", "id": 73, "method": "tools/call",
+        "params": {"name": "enforce_truth_boundary", "arguments": {
+            "entity": "untrusted_vendor_claim", "state": "OBSERVED",
+            "verification_status": "VERIFIED",
+            "independent_verifier": claimed_verifier,
+            "source_authenticated": True
+        }}
+    }
+    response = handle_rpc_call(request)
+    assert response["result"]["isError"] is True
+    assert "BLOCKED" in response["result"]["content"][0]["text"]
+
+def test_false_claim_with_no_verifier_still_blocked():
+    request = {
+        "jsonrpc": "2.0", "id": 74, "method": "tools/call",
+        "params": {"name": "enforce_truth_boundary", "arguments": {
+            "entity": "revenue", "state": "OBSERVED", "verification_status": "VERIFIED"
+        }}
+    }
+    assert handle_rpc_call(request)["result"]["isError"] is True
