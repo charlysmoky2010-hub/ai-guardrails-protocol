@@ -1,46 +1,111 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI Guardrails Protocol - a small evidence gate (early prototype)</title>
-  <style>
-    body {
-      font: 16px/1.6 system-ui, -apple-system, sans-serif;
-      max-width: 42rem;
-      margin: 3rem auto;
-      padding: 0 1rem;
-      color: #222;
-      background: #fff;
-    }
-    @media (prefers-color-scheme: dark) {
-      body { color: #ddd; background: #111; }
-      a { color: #8ab4ff; }
-    }
-    code {
-      background: rgba(127, 127, 127, .2);
-      padding: .1em .3em;
-      border-radius: 3px;
-      font-family: ui-monospace, monospace;
-    }
-    hr {
-      border: 0;
-      border-top: 1px solid rgba(127, 127, 127, .3);
-      margin: 2rem 0;
-    }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KI-Workflow Selbstcheck: 8 Kontrollfragen | CERBERRUS144</title>
+<meta name="description" content="Kostenloser KI-Workflow Selbstcheck mit 8 Fragen zu Quellen, Freigaben, Auditlogs und Agenten-Sicherheit. Ohne Login. Optionaler Offline-Arbeitsbogen auf Gumroad.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#123744">
+<meta property="og:type" content="website"><meta property="og:title" content="KI-Workflow Selbstcheck – 8 Kontrollfragen">
+<meta property="og:description" content="Ein kostenloser, lokaler Selbstcheck für KI-Automatisierung. Kein Zertifikat, keine Datenübertragung.">
+<style>
+:root{color-scheme:light;font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:#f4f8f8;color:#152d35}
+*{box-sizing:border-box}body{margin:0}main{max-width:1080px;margin:auto;padding:20px 22px 75px}
+a{color:#126773}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #d29a24;outline-offset:3px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 0 24px;border-bottom:1px solid #d4e3e3}
+.brand{font-size:.88rem;letter-spacing:.11em;font-weight:800;text-decoration:none;color:#165c66}
+.chip{font-size:.79rem;border:1px solid #a7cece;border-radius:30px;padding:6px 10px;background:#e5f3f3}
+h1{font-size:clamp(2.1rem,5vw,3.85rem);line-height:1.08;letter-spacing:-.05em;margin:38px 0 18px}
+.lead{font-size:1.12rem;max-width:800px;color:#48626a;line-height:1.65}
+h2{font-size:1.55rem;letter-spacing:-.025em}h3{font-size:1.08rem}p{line-height:1.66}
+.muted{color:#506a70}.small{font-size:.83rem;color:#516e75}
+.hero{padding-bottom:18px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+.panel{padding:24px;background:#fff;border:1px solid #d8e4e4;border-radius:17px;box-shadow:0 7px 23px rgba(7,50,60,.045)}
+.panel h3{margin-top:5px}.accent{background:#e7f3f2;border:1px solid #c0dddd}
+a.button,button{display:inline-block;appearance:none;border:1px solid #146d76;border-radius:10px;background:#146d76;color:#fff;padding:12px 17px;font-size:.94rem;font-weight:750;text-decoration:none;cursor:pointer;line-height:1.35}
+a.secondary{background:white;color:#146d76}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:17px 0 8px}
+.check{display:flex;align-items:flex-start;gap:13px;cursor:pointer;padding:17px 13px;border-bottom:1px solid #e1eded}
+.check:last-child{border-bottom:0}.check input{width:20px;height:20px;flex:none;accent-color:#146d76;margin-top:3px}
+.check strong{display:block;margin-bottom:2px}.check em{font-style:normal;color:#557078;font-size:.87rem;line-height:1.55;display:block}
+.stat{font-weight:800;font-size:2.2rem;color:#125d66}.notice{padding:15px 17px;border:1px solid #b8d9d7;border-radius:12px;background:#e8f5f4;margin-top:17px}
+.warning{background:#fff7e8;border-color:#edd2a1}
+.faq{max-width:850px}details{border-bottom:1px solid #d6e3e3;padding:14px 0}summary{cursor:pointer;font-weight:700}details p{color:#48646c;margin-bottom:5px}
+footer{border-top:1px solid #d7e4e3;margin-top:42px;padding:19px 0;color:#5b767c;font-size:.79rem}
+footer a{margin-right:15px}
+@media(max-width:500px){main{padding:12px 14px 55px}.panel{padding:16px}.brand{font-size:.78rem}.chip{font-size:.71rem}h1{margin:25px 0 15px}}
+</style>
 </head>
 <body>
-  <h1>AI Guardrails Protocol</h1>
-  <p>A small, free, MIT-licensed Python module built around one rule for AI agents: <strong>a claim is not evidence</strong>. An agent cannot mark its own observation as <code>VERIFIED</code>; such a claim raises an error instead of passing silently.</p>
-
-  <h2>Status</h2>
-  <p>Early prototype (v0.1.0). It is tiny, not production-hardened, and comes without warranty. There is no paid version. Feedback and issues are welcome.</p>
-
-  <h2>In the repository</h2>
-  <p><code>guardrails.py</code> (the evidence gate) and <code>mcp_server.py</code> (an experimental MCP server entry point). See the README for usage.</p>
-
-  <hr>
-  <p><a href="https://github.com/charlysmoky2010-hub/ai-guardrails-protocol">Source code and issues on GitHub</a></p>
-</body>
-</html>
+<main>
+<header><a class="brand" href="https://github.com/charlysmoky2010-hub/ai-guardrails-protocol">CERBERRUS144 / AI GUARDRAILS</a><span class="chip">Kostenlos · Lokal · Keine Anmeldung</span></header>
+<section class="hero">
+<h1>Ist dein KI-Workflow<br>wirklich kontrollierbar?</h1>
+<p class="lead">Ein KI-Agent kann überzeugend behaupten, etwas geprüft, gesendet oder erfolgreich abgeschlossen zu haben. Dieser <strong>kostenlose Selbstcheck mit acht Kontrollfragen</strong> hilft dir, offene Nachweis- und Freigabepunkte zu erkennen — bevor du einem Ergebnis vertraust.</p>
+<div class="actions"><a class="button" href="#selbstcheck">8 Fragen beantworten ↓</a><a class="button secondary" href="https://github.com/charlysmoky2010-hub/ai-guardrails-protocol">Kostenlosen Quellcode ansehen</a></div>
+<p class="small">Alle Antworten bleiben ausschließlich im aktuellen Browser-Tab. Keine Cookies, Analyse-Pixel oder Datenuploads durch dieses Formular.</p>
+</section>
+<div class="grid">
+<section class="panel"><h3>CLAIM ≠ EVIDENCE</h3><p class="muted">Ein Satz wie „Prüfung erfolgreich“ ist kein Beleg. Die Quelle und ihr tatsächlicher Prüfstatus müssen getrennt dokumentiert werden.</p></section>
+<section class="panel"><h3>Menschen behalten die Freigabe</h3><p class="muted">Zahlungen, echte Nachrichten, Veröffentlichungen und riskante Änderungen brauchen klar definierte Berechtigungen und überprüfbare Nachweise.</p></section>
+<section class="panel"><h3>Offline-Weiterarbeit</h3><p class="muted">Nach dem Selbstcheck kannst du die offenen Fragen eigenständig abarbeiten. Ein separater, optionaler Workflow-Arbeitsbogen ist käuflich erhältlich.</p></section>
+</div>
+<section id="selbstcheck" class="panel" style="margin-top:23px">
+<h2>Dein 8-Fragen-KI-Workflow-Selbstcheck</h2>
+<p class="muted">Markiere einen Punkt nur dann, wenn du ihn für <strong>einen konkreten Workflow</strong> nachweisbar beantworten kannst. Nicht sicher? Unmarkiert lassen.</p>
+<div id="checks">
+<label class="check"><input type="checkbox"><span><strong>1. Rollen und Werkzeugrechte</strong><em>Ist klar, welche Agenten welche Werkzeuge und Daten nutzen dürfen?</em></span></label>
+<label class="check"><input type="checkbox"><span><strong>2. Freigaben für kritische Aktionen</strong><em>Benötigen Zahlungen, Versand, Veröffentlichung und Löschung eine überprüfbare Freigabe?</em></span></label>
+<label class="check"><input type="checkbox"><span><strong>3. Quelle statt Behauptung</strong><em>Ist erkennbar, welche Aussage auf welcher unabhängigen Originalquelle beruht?</em></span></label>
+<label class="check"><input type="checkbox"><span><strong>4. Beweiskette und Auditlog</strong><em>Werden Aktionen, Ergebnisse, Fehler und Zeitpunkte nachvollziehbar dokumentiert?</em></span></label>
+<label class="check"><input type="checkbox"><span><strong>5. Fehlerzustände</strong><em>Bricht der Workflow bei fehlenden Nachweisen, ungültigen Antworten oder Ausfällen sicher ab?</em></span></label>
+<label class="check"><input type="checkbox"><span><strong>6. Daten- und Mandantentrennung</strong><em>Bleiben private Daten, Kundendaten und Testdaten technisch voneinander getrennt?</em></span></label>
+<label class="check"><input type="checkbox"><span><strong>7. Erinnerung und Zuständigkeit</strong><em>Kann niemand alte Annahmen als neue, überprüfte Fakten ausgeben?</em></span></label>
+<label class="check"><input type="checkbox"><span><strong>8. Test vor Produktion</strong><em>Gibt es negative Tests, Rollback und einen klaren Verantwortlichen für den Live-Betrieb?</em></span></label>
+</div>
+<div class="notice" aria-live="polite">
+<div class="stat" id="score">0 / 8</div>
+<strong id="scoreTitle">Noch keine Kontrollen markiert</strong>
+<p id="scoreHint" class="small">Acht konkrete Fragen warten auf deine eigene Einschätzung. Die Zahl ist kein Sicherheits- oder Compliance-Score.</p>
+</div>
+<div class="actions"><button type="button" id="reset">Auswahl zurücksetzen</button></div>
+<p class="small">Methodische Grenze: Dieses Formular prüft weder Quellenechtheit noch technische Zugriffsrechte. Die Antworten sind Selbstauskünfte, keine unabhängige Prüfung oder Zertifizierung.</p>
+</section>
+<section style="margin-top:24px">
+<h2>Offene Fragen systematisch bearbeiten</h2>
+<div class="grid">
+<article class="panel accent">
+<span class="chip">Optionale Selbstbedienung</span>
+<h3>CERBERRUS Operational X-Ray</h3>
+<p>Deutschsprachige Workflow-Arbeitsmappe mit Prozessanalyse, Aufgaben- und Kontrollmatrix, Pilotbriefing sowie Entscheidungsscorecard. Digitales ZIP, ohne persönliche Beratung.</p>
+<p><strong>29 € Produktpreis</strong> <span class="small">(Steuern werden im Checkout gegebenenfalls zusätzlich berechnet).</span></p>
+<a class="button" href="https://smokycharly.gumroad.com/l/cyrada?utm_source=github&utm_medium=ai_guardrails_landing&utm_campaign=cerberrus_xray_q4_2026" rel="noopener noreferrer">Arbeitsmappe bei Gumroad ansehen ↗</a>
+<p class="small">Separate kommerzielle Option. Kein Sicherheitszertifikat, keine Implementierung, keine Umsatz- oder Erfolgsgarantie.</p>
+</article>
+<article class="panel">
+<span class="chip">Kostenlos · Beta</span>
+<h3>ClaimProof Lite</h3>
+<p>Behauptungen und Quellenbezüge lokal dokumentieren. Einträge manuell prüfen und als JSON oder CSV exportieren.</p>
+<a class="button secondary" href="https://encoded-echo-dx9f9r4.shipstatic.com/proof/" rel="noopener noreferrer">Kostenloses Browsertool öffnen ↗</a>
+<p class="small">Kein automatischer Faktencheck. Keine Datenübertragung an einen Server durch das Tool.</p>
+</article>
+</div>
+</section>
+<section class="faq" style="margin-top:32px">
+<h2>Häufige Fragen</h2>
+<details><summary>Ist dieser Check eine KI-Sicherheitsprüfung?</summary><p>Nein. Er strukturiert Selbstangaben und ist weder ein unabhängiges Security-Audit noch eine regulatorische Prüfung.</p></details>
+<details><summary>Brauche ich ein Konto oder einen API-Schlüssel?</summary><p>Nein. Die acht Fragen laufen vollständig im Browser. Es werden keine KI-Modelle aufgerufen.</p></details>
+<details><summary>Ist die Open-Source-Bibliothek kostenpflichtig?</summary><p>Nein. Der <a href="https://github.com/charlysmoky2010-hub/ai-guardrails-protocol">AI Guardrails Protocol</a> ist frei unter MIT-Lizenz. Die verlinkte CERBERRUS-Arbeitsmappe ist ein eigenständiges optionales Produkt.</p></details>
+<details><summary>Was passiert nach dem Kauf der Arbeitsmappe?</summary><p>Gumroad verarbeitet die Bestellung und stellt die digitalen Dateien über den eigenen Lieferprozess bereit. Für die Arbeitsmappe wurde ein kostenloser Testkauf mit ZIP-Zustellung durchgeführt; das ist kein Nachweis realer Kundenumsätze.</p></details>
+</section>
+<footer>
+<p>© 2026 CERBERRUS144 / PHI-BRAIN. Dieser Selbstcheck dient der strukturierten Eigenbewertung, nicht als Rechts- oder Sicherheitsberatung.</p>
+<a href="https://vlgibwclecuhnnrgycnx.supabase.co/functions/v1/phi-nexus-public?page=imprint&amp;locale=de" rel="noopener noreferrer">Impressum</a>
+<a href="https://vlgibwclecuhnnrgycnx.supabase.co/functions/v1/phi-nexus-public?page=privacy&amp;locale=de" rel="noopener noreferrer">Datenschutz</a>
+<a href="https://github.com/charlysmoky2010-hub/ai-guardrails-protocol">Quellcode (MIT)</a>
+</footer>
+</main>
+<script>
+(()=>{"use strict";const root=document.getElementById("checks"),inputs=[...root.querySelectorAll('input[type="checkbox"]')],score=document.getElementById("score"),title=document.getElementById("scoreTitle"),hint=document.getElementById("scoreHint");function render(){const count=inputs.filter(e=>e.checked).length;score.textContent=count+" / 8";title.textContent=count===8?"Acht Punkte selbst bestätigt":count===0?"Noch keine Kontrollen markiert":(8-count)+" Prüfbereiche bleiben offen";hint.textContent=count===8?"Prüfe die Aussagen gegen Originalbelege und führe unabhängige Tests durch. Acht Häkchen sind kein Sicherheitsnachweis.":"Nicht markierte Punkte sind potenzielle Klärungsaufgaben. Der Check entscheidet nicht, ob dein System sicher oder rechtlich zulässig ist.";}root.addEventListener("change",render);document.getElementById("reset").addEventListener("click",()=>{inputs.forEach(x=>x.checked=false);render();});render();})();
+</script>
+</body></html>
