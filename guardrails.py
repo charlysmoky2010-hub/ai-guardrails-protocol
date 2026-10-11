@@ -22,11 +22,14 @@ class TruthBoundaryEnforcer:
         state = record.get("state")
         verification = record.get("verification_status")
         
-        # Guardrail 1: Disallow self-proclaimed VERIFIED state
-        if verification == "VERIFIED" and not record.get("independent_verifier"):
+        # Guardrail 1: A caller-supplied label is never authenticated proof.
+        # This public prototype has no trusted source-verification adapter.
+        # Fail closed even when independent_verifier is a plausible-looking string.
+        if verification == "VERIFIED":
             raise GuardrailViolation(
-                f"EPISTEMIC BREACH: Record '{record.get('entity')}' cannot claim VERIFIED "
-                f"without an external 'independent_verifier'."
+                f"EPISTEMIC BREACH: Record '{record.get('entity')}' supplied VERIFIED, "
+                "but this boundary cannot authenticate its independent verifier. "
+                "Use UNVERIFIED until a trusted external evidence adapter is integrated."
             )
             
         # Guardrail 2: Ensure valid epistemic state tag
