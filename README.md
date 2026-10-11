@@ -10,7 +10,7 @@ Für **einen konkreten Workflow** gibt es bei Bedarf separat eine [persönliche 
 
 ---
 
-> **Security notice (2026-10-11):** This public version does **not** authenticate caller-supplied verifier names or primary-source metadata. A malicious agent can supply fabricated verification information that is not independently checked. Do not use it as a production security, payment, compliance or source-authenticity verifier. A local mitigation is under test; it has **not** been published to this repository.
+> **Security notice (2026-10-11):** This public version does **not** authenticate caller-supplied verifier names or primary-source metadata. A malicious agent can supply fabricated verification information that is not independently checked. Do not use it as a production security, payment, compliance or source-authenticity verifier. **Update 2026-10-11:** The published truth-boundary function now rejects every caller-supplied `VERIFIED` value, including records with fabricated `independent_verifier` labels. This is a fail-closed mitigation, not a trusted source-verification adapter.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/)
@@ -69,6 +69,8 @@ Replace `/absolute/path/to/ai-guardrails-protocol` with the path to your own clo
 ---
 
 ### Current Status & Limitations
+- **Fail-closed guard:** `enforce_truth_boundary` blocks any incoming `VERIFIED` assertion. Independent verification requires an authenticated primary-source integration not included in this repository.
+- **Regression tests:** 30 passing on 2026-10-11, including five new forged-verifier tests.
 - **Prototype:** This is a minimalist reference implementation. Its verification field is not independently authenticated.
 - **Security boundary:** Caller-supplied evidence provenance and verifier identity must not be treated as genuine verification. Do not deploy this as a standalone security enforcement service.
 - **MCP annotations:** The provided tool annotations are metadata, not access-control enforcement.
