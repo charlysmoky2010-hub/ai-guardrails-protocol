@@ -10,6 +10,16 @@ Ohne Anmeldung, Modell-API oder Datenupload. Ein optionaler digitaler **CERBERRU
 
 ---
 
+### Kostenloses CRM-Audit: Antwortzeiten und offene Kundenanfragen
+
+[**CRM-CSV im Browser auf Antwortzeiten prüfen →**](https://vivid-mind-vfd842v.shipstatic.com/?utm_source=github&utm_medium=readme&utm_campaign=crm_response_check)
+
+Der **CRM-Response-Check** untersucht lokal eine exportierte CSV-Datei: Antwortquote, unbeantwortete Anfragen, Median, 90. Perzentil und Antworten nach 24 Stunden. Keine Dateiübertragung, keine Anmeldung und keine erfundenen Umsatzprognosen. Ein synthetischer Beispieldatensatz ist integriert; die Anzeige unterscheidet Datenlücken ausdrücklich von nachgewiesenem Kundenverlust.
+
+[Open-Source-Quellcode des Werkzeugs](tools/crm-response-check/index.html) · [Bei einem konkreten Workflow-Problem CERBERRUS144 anfragen](https://baseless-dust-738gwd3.shipstatic.com/)
+
+---
+
 ### CERBERRUS144: KI-Workflow-Projekt direkt anfragen
 
 [**Projektanfrage bei CERBERRUS144 AI Operations →**](https://baseless-dust-738gwd3.shipstatic.com/?utm_source=github&utm_medium=readme&utm_campaign=inbound_service_desk)
