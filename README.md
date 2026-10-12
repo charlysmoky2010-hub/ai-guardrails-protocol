@@ -8,7 +8,7 @@ MCP, n8n, API-Workflows oder autonome Agenten? Prüfe zuerst **Zugriffsrechte, m
 
 ### 1. Kostenlos beginnen
 
-[**KI-Workflow-Selbstcheck im Browser öffnen (8 Fragen) →**](https://unveiled-seed-x7w4mw8.shipstatic.com/?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_xray_q4_2026)
+[**KI-Workflow-Selbstcheck im Browser öffnen (8 Fragen) →**](https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_xray_q4_2026#selbstcheck)
 
 Die acht Fragen liefern eine erste Orientierung, **keinen** belastbaren Sicherheits- oder Compliance-Nachweis. KI-Risiken und wirtschaftliche Automatisierbarkeit müssen separat geprüft werden.
 
