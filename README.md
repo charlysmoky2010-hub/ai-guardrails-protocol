@@ -10,6 +10,14 @@ Ohne Anmeldung, Modell-API oder Datenupload. Ein optionaler digitaler **CERBERRU
 
 ---
 
+### CERBERRUS144: KI-Workflow-Projekt direkt anfragen
+
+[**Projektanfrage bei CERBERRUS144 AI Operations →**](https://baseless-dust-738gwd3.shipstatic.com/?utm_source=github&utm_medium=readme&utm_campaign=inbound_service_desk)
+
+Für Workflow-Diagnostik, Datenanalyse und klar begrenzte digitale Projekte. Das kostenlose Formular speichert eine vom Kunden selbst initiierte Anfrage im CERBERRUS144-System und zeigt bei bestätigtem Eingang eine Referenz an. Keine automatische Bestellung, kein garantierter Auftrag und keine unaufgeforderte Nachricht.
+
+---
+
 ### Für deutsche KI-Teams: acht Kontrollfragen
 
 Sie bauen einen KI-Agenten mit MCP, n8n oder APIs? **Vor der ersten produktiven Freigabe** sollten Werkzeugrechte, sensible Aktionen, echte Quellenprüfung, Mandantentrennung, Auditlogs, Fehlermodi, Gedächtnis und Verantwortlichkeiten geklärt sein. Unser [kostenloser 8-Fragen-Selbstcheck](https://reverent-echo-c6ynd3a.shipstatic.com/#check) hilft bei einer ersten Einordnung. Das Ergebnis ist **keine** Sicherheitsprüfung oder Zertifizierung.
