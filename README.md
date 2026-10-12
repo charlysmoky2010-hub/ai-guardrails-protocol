@@ -1,38 +1,30 @@
 # 🛡️ AI Guardrails Protocol (v0.1.0)
 
-> **A small, free, MIT-licensed research prototype built around one fundamental rule for autonomous AI agents: A CLAIM IS NOT EVIDENCE.**
+> **A small, free, MIT-licensed research prototype for one rule: A CLAIM IS NOT EVIDENCE.** It does not authenticate source claims or provide production security certification.
 
-### Jetzt ausprobieren: kostenloser KI-Workflow-Selbstcheck
+## KI-Agenten und Automatisierung: 8 Kontrollfragen vor dem Einsatz
 
-[**8 Kontrollfragen direkt im Browser beantworten →**](https://unveiled-seed-x7w4mw8.shipstatic.com/?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_xray_q4_2026)
+MCP, n8n, API-Workflows oder autonome Agenten? Prüfe zuerst **Zugriffsrechte, menschliche Verantwortung, sensible Daten, Fehlermodi und Belegbarkeit** – kostenlos, ohne Anmeldung und ohne Upload sensibler Daten.
 
-Ohne Anmeldung, Modell-API oder Datenupload. Ein optionaler digitaler **CERBERRUS Operational X-Ray**-Arbeitsbogen (€29, Gumroad; ggf. zusätzliche Steuern im Checkout) ist separat verlinkt. Die Eigenbewertung ersetzt keine Sicherheits- oder Compliance-Prüfung.
+### 1. Kostenlos beginnen
 
----
+[**KI-Workflow-Selbstcheck im Browser öffnen (8 Fragen) →**](https://unveiled-seed-x7w4mw8.shipstatic.com/?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_xray_q4_2026)
 
-### Kostenloses CRM-Audit: Antwortzeiten und offene Kundenanfragen
+Die acht Fragen liefern eine erste Orientierung, **keinen** belastbaren Sicherheits- oder Compliance-Nachweis. KI-Risiken und wirtschaftliche Automatisierbarkeit müssen separat geprüft werden.
 
-[**CRM-CSV im Browser auf Antwortzeiten prüfen →**](https://vivid-mind-vfd842v.shipstatic.com/?utm_source=github&utm_medium=readme&utm_campaign=crm_response_check)
+### 2. Einen konkreten Prozess systematisch bewerten
 
-Der **CRM-Response-Check** untersucht lokal eine exportierte CSV-Datei: Antwortquote, unbeantwortete Anfragen, Median, 90. Perzentil und Antworten nach 24 Stunden. Keine Dateiübertragung, keine Anmeldung und keine erfundenen Umsatzprognosen. Ein synthetischer Beispieldatensatz ist integriert; die Anzeige unterscheidet Datenlücken ausdrücklich von nachgewiesenem Kundenverlust.
+[**CERBERRUS Operational X-Ray – deutsches Workflow Workbook (€29) →**](https://smokycharly.gumroad.com/l/cyrada?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_xray_q4_2026&utm_content=workbook)
 
-[Open-Source-Quellcode des Werkzeugs](tools/crm-response-check/index.html) · [Bei einem konkreten Workflow-Problem CERBERRUS144 anfragen](https://baseless-dust-738gwd3.shipstatic.com/)
+Offline-Arbeitsmaterial zur Beschreibung eines wiederkehrenden Prozesses, möglicher Engpässe, Prüfaufwände und Entscheidungskriterien **vor einer KI-Investition**. Digitales Selbstlernprodukt, keine persönliche Beratung. Zusätzliche Steuern werden gegebenenfalls im Gumroad-Checkout angezeigt.
 
----
+### 3. Persönliche Unterstützung nur bei konkretem Bedarf
 
-### CERBERRUS144: KI-Workflow-Projekt direkt anfragen
+[**Projektanfrage bei CERBERRUS144 AI Operations →**](https://baseless-dust-738gwd3.shipstatic.com/?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_inbound_q4_2026)
 
-[**Projektanfrage bei CERBERRUS144 AI Operations →**](https://baseless-dust-738gwd3.shipstatic.com/?utm_source=github&utm_medium=readme&utm_campaign=inbound_service_desk)
+Für begrenzte Workflow-Analysen, Datenaufgaben oder technische Vorprüfungen. Das Formular ist freiwillig; eine Anfrage ist **keine** Bestellung, Zahlung oder garantierte Projektannahme. Keine automatische Kaltakquise. Persönliche Beratungsangebote sind vom freien MIT-Code und vom €29-Workbook getrennt.
 
-Für Workflow-Diagnostik, Datenanalyse und klar begrenzte digitale Projekte. Das kostenlose Formular speichert eine vom Kunden selbst initiierte Anfrage im CERBERRUS144-System und zeigt bei bestätigtem Eingang eine Referenz an. Keine automatische Bestellung, kein garantierter Auftrag und keine unaufgeforderte Nachricht.
-
----
-
-### Für deutsche KI-Teams: acht Kontrollfragen
-
-Sie bauen einen KI-Agenten mit MCP, n8n oder APIs? **Vor der ersten produktiven Freigabe** sollten Werkzeugrechte, sensible Aktionen, echte Quellenprüfung, Mandantentrennung, Auditlogs, Fehlermodi, Gedächtnis und Verantwortlichkeiten geklärt sein. Unser [kostenloser 8-Fragen-Selbstcheck](https://reverent-echo-c6ynd3a.shipstatic.com/#check) hilft bei einer ersten Einordnung. Das Ergebnis ist **keine** Sicherheitsprüfung oder Zertifizierung.
-
-Für **einen konkreten Workflow** gibt es bei Bedarf separat eine [persönliche 30-Minuten-Discovery für 99 €](https://reverent-echo-c6ynd3a.shipstatic.com/#angebote). Sie ersetzt **keine** Implementierung und ist nicht Bestandteil der freien MIT-Lizenz dieses Repositorys.
+**Status der kommerziellen Angebote:** Öffentliche Links sind keine Belege für Besucher, bezahlte Käufe oder Einsparungen. Wir messen ausschließlich nachprüfbare Ergebnisse.
 
 ---
 
