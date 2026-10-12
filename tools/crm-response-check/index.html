@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="de"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CRM-CSV Antwortzeiten prüfen · Kostenlos, ohne Upload | CERBERRUS144</title>
+<meta name="description" content="CRM-CSV kostenlos lokal prüfen: Wie viele Kundenanfragen sind unbeantwortet? Antwortzeiten, Median, P90 und fehlende Antworten messen. Kein Upload, keine Anmeldung.">
+<meta name="robots" content="index,follow"><meta name="theme-color" content="#0e1724">
+<meta property="og:type" content="website"><meta property="og:title" content="CRM Antwortzeit & unbeantwortete Anfragen aus CSV prüfen">
+<meta property="og:description" content="Kostenloser Lead-Response-Audit im Browser. Deine CSV-Datei bleibt auf deinem Gerät.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"CERBERRUS144 CRM Response Audit","applicationCategory":"BusinessApplication","operatingSystem":"Web browser","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Lokale CSV-Auswertung der Antwortzeit und fehlenden Antworten für eingehende Kundenanfragen."}</script>
+<style>
+:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;--bg:#0e1724;--ink:#eef5f4;--muted:#a9bdc7;--stroke:#395060;--card:#1a2b3a;--lime:#c9f18b;background:var(--bg);color:var(--ink)}*{box-sizing:border-box}body{margin:0}main{width:min(1080px,calc(100% - 32px));margin:auto}.top{height:74px;border-bottom:1px solid var(--stroke);display:flex;justify-content:space-between;align-items:center;gap:10px}.brand{font-size:12px;letter-spacing:.1em;font-weight:800;color:var(--ink);text-decoration:none}.brand b{color:var(--lime)}.top a:last-child{color:var(--lime);font-size:12px}.hero{padding:70px 0 42px}.eyebrow{font-size:11px;font-weight:780;letter-spacing:.13em;text-transform:uppercase;color:var(--lime)}h1{font-size:clamp(38px,6vw,68px);font-weight:690;letter-spacing:-.055em;line-height:1.04;max-width:950px;margin:14px 0}h1 em{font-style:normal;color:var(--lime)}.lead{max-width:760px;line-height:1.72;font-size:16px;color:#c6d5d9}.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.chips span{padding:8px 10px;border:1px solid var(--stroke);border-radius:8px;font-size:11px;color:#c5d7dc}
+.box{border:1px solid #4b6877;background:var(--card);border-radius:15px;padding:clamp(19px,3.5vw,34px);margin-bottom:25px}h2{font-size:25px;letter-spacing:-.035em;margin:0 0 11px}.help{font-size:13px;color:var(--muted);line-height:1.7}.upload{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:20px 0}.btn{border:0;background:var(--lime);color:#18251c;font-weight:760;padding:12px 16px;border-radius:9px;cursor:pointer;font-size:13px}.btn.secondary{background:#2b4350;color:#edfbf6;border:1px solid #486a74}.upload input{max-width:100%;color:#c3d7df}.upload input::file-selector-button{background:#2d4b50;color:#f7fff6;border:1px solid #67817f;border-radius:7px;padding:9px 11px;margin-right:11px;cursor:pointer}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.metric{border:1px solid #47606b;background:#102331;border-radius:11px;padding:18px}.metric small{display:block;text-transform:uppercase;letter-spacing:.08em;color:#a6bfca;font-size:10px;line-height:1.6}.metric strong{display:block;margin-top:8px;font-size:clamp(24px,3.5vw,42px);font-weight:740;letter-spacing:-.055em}.metric span{font-size:11px;color:#b4c9d2}.hidden{display:none!important}.warning{background:#3b2e25;border:1px solid #b59862;color:#fff0c8;padding:12px 15px;border-radius:8px;font-size:12px;line-height:1.7}.error{background:#3b2430;border:1px solid #bd6976;color:#ffd4d9}.good{border:1px solid #88bc76;background:#203427;padding:12px 15px;border-radius:8px;color:#e0fad4;font-size:12px}.bar{background:#314857;border-radius:7px;overflow:hidden;height:13px;margin:10px 0}.bar>div{background:var(--lime);height:100%;width:0%;transition:width .2s}.note{color:#a9bfca;font-size:12px;line-height:1.75}.example{font-size:12px;line-height:1.7;color:#aac3cb}.example code{color:#d4edac;overflow-wrap:anywhere}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}.faq{padding:31px 0 54px}.faq article{padding:20px 0;border-top:1px solid var(--stroke)}.faq h3{font-size:15px;margin:0 0 7px}.faq p{font-size:13px;line-height:1.7;color:var(--muted);margin:0}.foot{border-top:1px solid var(--stroke);padding:25px 0 43px;display:flex;gap:15px;justify-content:space-between;flex-wrap:wrap;font-size:11px;color:#afc4c9}.foot a{color:#cedbc8}.resulthead{margin:0 0 18px}.resulthead p{margin:6px 0;color:var(--muted);font-size:12px}.mapping{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:19px 0}.mapping label{font-size:12px;color:#d7e7e9}.mapping select{display:block;width:100%;padding:11px;margin-top:8px;color:var(--ink);background:#112431;border:1px solid var(--stroke);border-radius:8px}.cta{background:linear-gradient(120deg,#27453b,#193341);border:1px solid #61866f;padding:26px;border-radius:15px;margin-bottom:30px}.cta h2{margin:0 0 10px}.cta p{color:#c1d9d6;font-size:13px;line-height:1.7;max-width:690px}.cta a{text-decoration:none;display:inline-block;margin-top:10px}.attention{color:#fbd79e}button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #fada80;outline-offset:3px}
+@media(max-width:750px){.grid{grid-template-columns:1fr 1fr}.mapping{grid-template-columns:1fr}.hero{padding-top:45px}}@media(max-width:490px){.grid{grid-template-columns:1fr}.top{height:68px}.hero h1{font-size:41px}}
+</style></head><body><main>
+<header class="top"><a class="brand" href="https://baseless-dust-738gwd3.shipstatic.com/"><b>◆</b> CERBERRUS144 / FREE TOOLS</a><a href="https://baseless-dust-738gwd3.shipstatic.com/#request">KI-Projekt anfragen ↗</a></header>
+<section class="hero"><div class="eyebrow">CRM-Antwortzeit-Check · kostenlos · ohne Upload</div>
+<h1>Wie viele Kundenanfragen <em>bleiben unbeantwortet?</em></h1>
+<p class="lead">Prüfe eine exportierte CRM-Liste direkt im Browser: unbeantwortete Anfragen, Zeit bis zur ersten Antwort und den Anteil langsamer Reaktionen. Keine Dateiübertragung, keine Anmeldung, kein Fantasie-Umsatzversprechen.</p>
+<div class="chips"><span>✓ CSV bleibt lokal</span><span>✓ Antwortquote und Median</span><span>✓ 90. Perzentil</span><span>✓ Bericht zum Kopieren</span></div></section>
+<section class="box">
+<h2>1 · CRM-Daten auswählen</h2><p class="help">Erwartete Spalten: <strong>created_at</strong> (Eingangsdatum) und <strong>first_response_at</strong> (erste tatsächliche Antwort). Alternativ gängige deutsche Bezeichnungen. CSV, maximal 2 MB; Komma, Semikolon oder Tabulator. Es werden keine Namen oder E-Mail-Adressen angezeigt.</p>
+<div class="upload"><input type="file" id="file" accept=".csv,.tsv,text/csv,text/tab-separated-values" aria-label="CRM-CSV-Datei auswählen"><button type="button" class="btn secondary" id="demo">Beispieldaten ausprobieren</button></div>
+<div id="notice" class="warning">Die Auswertung zählt nur Daten, die du bewusst auswählst. Ein fehlendes Antwortdatum kann auch einen Exportfehler bedeuten.</div>
+<div id="mapping" class="mapping hidden"><label>Eingangsdatum-Spalte<select id="created"></select></label><label>Datum der ersten Antwort<select id="responded"></select></label></div>
+<button type="button" class="btn hidden" id="analyze">2 · Analyse starten</button>
+<p class="example">Demo-Daten enthalten <strong>keine echten Kundendaten</strong>. Wichtig: Zeitangaben ohne Zeitzone werden in der lokalen Zeitzone deines Geräts interpretiert.</p>
+</section>
+<section class="box hidden" id="results" aria-live="polite"><div class="resulthead"><h2>2 · Dein CRM-Befund</h2><p id="sourceInfo"></p></div>
+<div class="grid"><div class="metric"><small>Auswertbare Anfragen</small><strong id="total">0</strong><span>Zeilen mit gültigem Eingangsdatum</span></div>
+<div class="metric"><small>Ohne Antwortdatum</small><strong id="missing">0</strong><span>Unbeantwortet oder fehlende Exportdaten</span></div>
+<div class="metric"><small>Antwortquote</small><strong id="rate">0 %</strong><span>Datensätze mit gültiger Antwortzeit</span></div>
+<div class="metric"><small>Median der Antwortzeit</small><strong id="median">–</strong><span>Nur beantwortete Datensätze</span></div>
+<div class="metric"><small>90. Perzentil</small><strong id="p90">–</strong><span>90 % der gültigen Antworten liegen darunter</span></div>
+<div class="metric"><small>Antwort erst nach 24 h</small><strong id="late">0</strong><span>Unter beantworteten Anfragen</span></div></div>
+<p class="note">Gemessener Anteil beantworteter Datensätze</p><div class="bar" aria-label="Anteil antwortender Datensätze"><div id="bar"></div></div>
+<div class="warning" id="caveat" style="margin-top:17px"></div>
+<div class="actions"><button type="button" class="btn secondary" id="copy">Anonymen Ergebnisbericht kopieren</button><button type="button" class="btn secondary" id="reset">Andere Datei prüfen</button></div>
+<p class="note" id="copyState" aria-live="polite"></p>
+</section>
+<section class="cta"><div class="eyebrow">Aus Befunden werden konkrete Maßnahmen</div><h2>Zu viele offene Anfragen? Lass den Ablauf prüfen.</h2><p>Du kannst CERBERRUS144 eine klar begrenzte Aufgabe geben: Eingangsquellen, Verantwortung, Reaktionszeit und Nachverfolgung aufeinander abstimmen. Eine Anfrage löst keine Zahlung und keinen automatischen Nachrichtenversand aus.</p><a class="btn" href="https://baseless-dust-738gwd3.shipstatic.com/#request">Kostenloses Projektbriefing starten →</a><p class="note">Der kostenlose Check ist keine rechtsverbindliche Qualitätsprüfung und keine Zusage künftiger Umsätze.</p></section>
+<section class="faq" id="faq"><h2>Fragen zum CRM-Antwortzeit-Check</h2>
+<article><h3>Werden Kundendaten hochgeladen?</h3><p>Nein. Die ausgewählte Datei wird per JavaScript im Browser gelesen; die Anwendung überträgt ihren Inhalt nicht an einen Server. Öffne für vertrauliche Listen nur Geräte und Browser, die du selbst kontrollierst.</p></article>
+<article><h3>Wie werden Antwortzeiten berechnet?</h3><p>Für jede Zeile wird die Differenz zwischen dem Zeitstempel der ersten Antwort und dem Eingang der Anfrage gebildet. Ungültige oder zeitlich rückwärts laufende Datensätze werden ausgeschlossen und gesondert gezählt.</p></article>
+<article><h3>Ist eine nicht beantwortete Anfrage gleich ein verlorener Kunde?</h3><p>Nein. Ein leeres Antwortfeld kann auch durch fehlerhafte Datenexporte oder andere Kommunikationskanäle entstehen. Der Check weist auf Daten- und Prozesslücken hin, ohne Umsatzausfälle zu behaupten.</p></article>
+<article><h3>Welche CSV-Formate werden unterstützt?</h3><p>UTF-8 mit Komma, Semikolon oder Tabulator, mit quotierten Feldern einschließlich eingebetteter Zeilenumbrüche. Datum als ISO 8601 oder übliches deutsches Format Tag.Monat.Jahr Stunde:Minute.</p></article>
+</section>
+<footer class="foot"><span>© 2026 CERBERRUS144 · Unabhängiger lokaler CSV-Erstcheck</span><div><a href="https://baseless-dust-738gwd3.shipstatic.com/">Service Desk</a> · <a href="https://vlgibwclecuhnnrgycnx.supabase.co/functions/v1/phi-nexus-public?page=imprint&amp;locale=de">Anbieterangaben</a> · <a href="https://vlgibwclecuhnnrgycnx.supabase.co/functions/v1/phi-nexus-public?page=privacy&amp;locale=de">Datenschutz</a></div></footer>
+</main>
+<script>
+"use strict";
+(function(){
+const $=id=>document.getElementById(id);
+let table=null,report=null;
+function parseCSV(text,separator){
+ if(text.charCodeAt(0)===65279)text=text.slice(1);
+ let out=[],row=[],field="",quoted=false;
+ for(let i=0;i<text.length;i++){
+ const c=text[i];
+ if(c==='"'){
+   if(quoted&&text[i+1]==='"'){field+='"';i++;}
+   else quoted=!quoted;
+ }else if(c===separator&&!quoted){row.push(field);field="";}
+ else if((c==='\r'||c==='\n')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(field);field="";if(row.some(x=>x.trim()!==""))out.push(row);row=[];}
+ else field+=c;
+ }
+ if(quoted)throw new Error("Nicht geschlossene Anführungszeichen in CSV.");
+ row.push(field);
+ if(row.some(x=>x.trim()!==""))out.push(row);
+ if(out.length>15001)throw new Error("Zu viele Zeilen. Limit: 15.000 Datensätze.");
+ return out;
+}
+function detectSeparator(txt){
+ let first=txt.split(/\r?\n/)[0],scores=[',',';','\t'].map(s=>{
+ let q=false,n=0;for(let i=0;i<first.length;i++){if(first[i]==='"'){if(first[i+1]==='"')i++;else q=!q;}else if(first[i]===s&&!q)n++;}return [s,n]});
+ scores.sort((a,b)=>b[1]-a[1]);
+ return scores[0][1]===0?',':scores[0][0];
+}
+function dt(value){
+ let t=String(value||"").trim();if(!t)return null;
+ const german=t.match(/^(\d{2})\.(\d{2})\.(\d{4})(?:[ ,T]+(\d{1,2}):(\d{2})(?::(\d{2}))?)?$/);
+ if(german){let d=new Date(Number(german[3]),Number(german[2])-1,Number(german[1]),Number(german[4]||0),Number(german[5]||0),Number(german[6]||0));
+ if(d.getFullYear()!==Number(german[3])||d.getMonth()!==Number(german[2])-1||d.getDate()!==Number(german[1]))return null;
+ return d.getTime();}
+ if(!/^\d{4}-\d\d-\d\d/.test(t))return null;
+ const d=new Date(t);
+ return Number.isFinite(d.getTime())?d.getTime():null;
+}
+function median(sorted,q){
+ if(!sorted.length)return null;
+ const at=(sorted.length-1)*q,lo=Math.floor(at),hi=Math.ceil(at);
+ return sorted[lo]+(sorted[hi]-sorted[lo])*(at-lo);
+}
+function duration(ms){
+ if(ms===null)return "–";
+ const minutes=Math.round(ms/60000);
+ return minutes<120?minutes+" min":minutes<2880?(minutes/60).toFixed(1).replace(".",",")+" h":(minutes/1440).toFixed(1).replace(".",",")+" Tage";
+}
+function analyze(rows,a,b){
+ let valid=0,unanswered=0,invalid=0,reversed=0,late=0,times=[];
+ for(const row of rows.slice(1)){
+ const start=dt(row[a]);if(start===null){invalid++;continue;}
+ valid++;
+ const raw=String(row[b]||"").trim();
+ if(!raw){unanswered++;continue;}
+ const end=dt(raw);
+ if(end===null){invalid++;continue;}
+ if(end<start){reversed++;continue;}
+ const diff=end-start;times.push(diff);if(diff>86400000)late++;
+ }
+ times.sort((x,y)=>x-y);
+ let ratio=valid?(times.length/valid)*100:0;
+ return {total:valid,responded:times.length,missing:unanswered,invalid,reversed,
+  rate:ratio,median:median(times,.5),p90:median(times,.9),late};
+}
+function showError(txt){$('notice').className="warning error";$('notice').textContent=txt;$('results').classList.add('hidden');}
+function load(text,source){
+ try{
+ if(text.length>2100000)throw new Error("Datei größer als 2 MB.");
+ const sep=detectSeparator(text),rows=parseCSV(text,sep);
+ if(rows.length<2)throw new Error("CSV enthält keine auswertbaren Datensätze.");
+ const head=rows[0].map(x=>x.trim().toLowerCase().replace(/[\s-]+/g,"_"));
+ if(head.length>100||head.length<2)throw new Error("Spaltenzahl außerhalb des unterstützten Bereichs (2–100).");
+ const cols=rows[0];
+ table={rows,cols,source};
+ const groups={
+ a:["created_at","received_at","eingang","eingangsdatum","eingegangen_am","anfrage_eingang","anfrage_datum","anfragedatum","erstellt_am","created","creation_date","date_created","zeitstempel_eingang"],
+ b:["first_response_at","first_reply_at","answered_at","response_at","erste_antwort","antwortdatum","antwort_am","antwortzeitpunkt","erstkontakt_am","first_response","replied_at"]
+ };
+ for(const role of ["created","responded"]){
+ const sel=$(role);sel.replaceChildren();
+ cols.forEach((name,i)=>{const option=document.createElement('option');option.value=String(i);option.textContent=name.slice(0,110);sel.append(option);});
+ const wanted=role==="created"?groups.a:groups.b;
+ const match=head.findIndex(x=>wanted.includes(x));
+ sel.value=String(match>=0?match:role==="created"?0:1);
+ }
+ $('mapping').classList.remove("hidden");$('analyze').classList.remove("hidden");$('results').classList.add("hidden");
+ $('notice').className="good";$('notice').textContent=rows.length-1+" Datenzeilen aus "+source+" geladen. Datei wurde nicht übertragen. Prüfe die Spaltenauswahl.";
+ }catch(err){table=null;showError(String(err.message||err));$('mapping').classList.add('hidden');$('analyze').classList.add('hidden');}
+}
+$('file').addEventListener('change',async e=>{
+ const f=e.target.files&&e.target.files[0];if(!f)return;
+ if(f.size>2100000){showError("Maximal 2 MB unterstützt.");return;}
+ try{load(await f.text(),f.name);}catch{showError("Datei konnte nicht gelesen werden.");}
+});
+$('demo').addEventListener('click',()=>{
+ const now=Date.now(),iso=delta=>new Date(now-delta*3600000).toISOString();
+ let lines=["created_at;first_response_at"];
+ for(let i=0;i<18;i++){
+ const created=iso(60+i*3);
+ const response=i%6===0?"":new Date(Date.parse(created)+(i%5+1)*3600000).toISOString();
+ lines.push(created+";"+response);
+ }
+ load(lines.join("\n"),"synthetisches Beispiel (keine echten Kunden)");
+});
+$('analyze').addEventListener('click',()=>{
+ if(!table)return;
+ const a=Number($('created').value),b=Number($('responded').value);
+ if(a===b){showError("Bitte zwei verschiedene Datumsspalten wählen.");return;}
+ report=analyze(table.rows,a,b);
+ if(!report.total){showError("Kein gültiges Eingangsdatum gefunden. Prüfe die Spalten und das Datumsformat.");return;}
+ $('sourceInfo').textContent=table.source+" · "+new Date().toLocaleString("de-DE");
+ $('total').textContent=report.total.toLocaleString("de-DE");
+ $('missing').textContent=report.missing.toLocaleString("de-DE");
+ $('rate').textContent=report.rate.toFixed(1).replace(".",",")+" %";
+ $('median').textContent=duration(report.median);
+ $('p90').textContent=duration(report.p90);
+ $('late').textContent=report.late.toLocaleString("de-DE");
+ $('bar').style.width=report.rate+"%";
+ $('caveat').textContent="Datenhinweis: "+report.invalid+" Zeile(n) mit fehlenden/ungültigen Datumswerten, "+report.reversed+" Antwort(en) vor Eingang. Die Antwortquote berücksichtigt nur gültige Antwortzeiten und ist keine Verkaufsquote. Ein fehlendes Antwortdatum kann einen Exportfehler bedeuten.";
+ $('results').classList.remove('hidden');$('results').scrollIntoView({behavior:"smooth",block:"start"});
+});
+$('copy').addEventListener('click',async()=>{
+ if(!report)return;const r=report;
+ const text=["CERBERRUS144 CRM-Antwortzeit-Check","Lokale CSV-Erstprüfung (keine Umsatzprognose)","Auswertbare Anfragen: "+r.total,"Antworten mit gültiger Zeit: "+r.responded,"Ohne Antwortdatum: "+r.missing,"Antwortquote: "+r.rate.toFixed(1)+" %","Median: "+duration(r.median),"P90: "+duration(r.p90),"Antworten nach 24h: "+r.late,"Ungültig/fehlend: "+r.invalid,"Zeitlich unplausibel: "+r.reversed].join("\n");
+ try{await navigator.clipboard.writeText(text);$('copyState').textContent="Anonymer Statistikbericht kopiert (ohne CSV-Rohdaten).";}catch{$('copyState').textContent="Kopieren vom Browser blockiert. Ergebnis kann abgelesen werden.";}
+});
+$('reset').addEventListener('click',()=>{table=null;report=null;$('results').classList.add('hidden');$('mapping').classList.add('hidden');$('analyze').classList.add('hidden');$('file').value="";$('notice').className="warning";$('notice').textContent="Bereit für eine neue lokale CSV.";});
+if(new URLSearchParams(location.search).get('demo')==='1')$('demo').click();
+})();
+</script></body></html>
