@@ -2,15 +2,20 @@
 
 > **A small, free, MIT-licensed research prototype for one rule: A CLAIM IS NOT EVIDENCE.** It does not authenticate source claims or provide production security certification.
 
-## Du möchtest einen KI-Workflow prüfen? Wähle den passenden Einstieg.
+## 🔎 Wir übernehmen konkrete Recherche- und Büroaufgaben
 
-| Dein Bedarf | Passender Einstieg | Preis |
-| --- | --- | ---: |
-| Erst Orientierung gewinnen, ohne persönliche Daten hochzuladen | [Kostenloser KI-Workflow-Selbstcheck](https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_xray_q4_2026#selbstcheck) | Kostenlos |
-| Einen wiederkehrenden Büro- oder Geschäftsprozess selbst dokumentieren und Engpässe erkennen | [CERBERRUS Operational X-Ray, deutsches Offline-Workbook](https://smokycharly.gumroad.com/l/cyrada?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_xray_q4_2026&utm_content=comparison) | €29 |
-| Einen konkreten KI-Workflow mit einer Person eingrenzen und die nächsten Schritte besprechen | [PHI NEXUS – 30-Minuten-Discovery](https://reverent-echo-c6ynd3a.shipstatic.com/) | €99 |
+**Neuer Schwerpunkt: Dienstleistungen statt KI-Produktverkauf.** Wir prüfen einen bestehenden Verwaltungsablauf, dokumentieren konkrete Verbesserungen oder recherchieren ein eng begrenztes Geschäftsthema – ohne neue Software und ohne Zugriff auf vertrauliche Daten.
 
-Der kostenlose Check ist keine Zertifizierung. Das Workbook ist ein digitales Selbstlernprodukt; die Discovery ist eine getrennte, persönlich erbrachte Dienstleistung nach Umfangs- und Terminabstimmung. Ein Klick, eine Anfrage oder ein Testkauf bedeutet nicht, dass bereits ein Kundenauftrag vorliegt.
+- **Büroablauf-Check (99 €):** 30 Minuten persönliches Gespräch über einen Ablauf + kurze umsetzbare Ergebnisnotiz.
+- **Quellenbasierter Recherche-Brief (ab 79 €):** 2–3 Seiten zu einem eng definierten Thema mit prüfbarer Quellenliste.
+
+➡️ **[Leistungen, Grenzen und Ablauf ansehen](SERVICES.md)** · **[Unverbindliche Anfrage an das CERBERRUS144-Postfach](mailto:cerberrus144-os@agentmail.to?subject=Anfrage%20CERBERRUS144%20Dienstleistung)**
+
+Ein Auftrag entsteht erst nach individueller Prüfung, schriftlicher Umfangsbestätigung und Klärung der formalen Voraussetzungen. Keine automatischen Gebühren durch eine Anfrage, keine zugesicherten Umsatzsteigerungen.
+
+### Selbstprüfung und bisherige Materialien
+
+Der [kostenlose KI-Workflow-Selbstcheck](https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_xray_q4_2026#selbstcheck) und das bisherige [29-€-Workbook](https://smokycharly.gumroad.com/l/cyrada?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_xray_q4_2026&utm_content=legacy_workbook) bleiben verfügbar, stehen aber **nicht mehr im Mittelpunkt unseres Dienstleistungsangebots**.
 
 ## KI-Agenten und Automatisierung: 8 Kontrollfragen vor dem Einsatz
 
