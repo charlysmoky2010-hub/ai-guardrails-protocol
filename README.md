@@ -2,6 +2,16 @@
 
 > **A small, free, MIT-licensed research prototype for one rule: A CLAIM IS NOT EVIDENCE.** It does not authenticate source claims or provide production security certification.
 
+## Du möchtest einen KI-Workflow prüfen? Wähle den passenden Einstieg.
+
+| Dein Bedarf | Passender Einstieg | Preis |
+| --- | --- | ---: |
+| Erst Orientierung gewinnen, ohne persönliche Daten hochzuladen | [Kostenloser KI-Workflow-Selbstcheck](https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_xray_q4_2026#selbstcheck) | Kostenlos |
+| Einen wiederkehrenden Büro- oder Geschäftsprozess selbst dokumentieren und Engpässe erkennen | [CERBERRUS Operational X-Ray, deutsches Offline-Workbook](https://smokycharly.gumroad.com/l/cyrada?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_xray_q4_2026&utm_content=comparison) | €29 |
+| Einen konkreten KI-Workflow mit einer Person eingrenzen und die nächsten Schritte besprechen | [PHI NEXUS – 30-Minuten-Discovery](https://reverent-echo-c6ynd3a.shipstatic.com/) | €99 |
+
+Der kostenlose Check ist keine Zertifizierung. Das Workbook ist ein digitales Selbstlernprodukt; die Discovery ist eine getrennte, persönlich erbrachte Dienstleistung nach Umfangs- und Terminabstimmung. Ein Klick, eine Anfrage oder ein Testkauf bedeutet nicht, dass bereits ein Kundenauftrag vorliegt.
+
 ## KI-Agenten und Automatisierung: 8 Kontrollfragen vor dem Einsatz
 
 MCP, n8n, API-Workflows oder autonome Agenten? Prüfe zuerst **Zugriffsrechte, menschliche Verantwortung, sensible Daten, Fehlermodi und Belegbarkeit** – kostenlos, ohne Anmeldung und ohne Upload sensibler Daten.
@@ -12,7 +22,9 @@ MCP, n8n, API-Workflows oder autonome Agenten? Prüfe zuerst **Zugriffsrechte, m
 
 Die acht Fragen liefern eine erste Orientierung, **keinen** belastbaren Sicherheits- oder Compliance-Nachweis. KI-Risiken und wirtschaftliche Automatisierbarkeit müssen separat geprüft werden.
 
-**Praxisbeispiel für kleine Betreuungsdienste:** [7-Punkte-Checkliste zur Digitalisierung von Büroanfragen (kostenlos)](docs/betreuungsdienst-bueroarbeit-digitalisieren-checkliste.md) – mit konkreten Prüffragen, Datenschutzgrenzen und menschlichen Freigaben; keine echten Patienten- oder Kundendaten.\n\n### 2. Einen konkreten Prozess systematisch bewerten
+**Praxisbeispiel für kleine Betreuungsdienste:** [7-Punkte-Checkliste zur Digitalisierung von Büroanfragen (kostenlos)](docs/betreuungsdienst-bueroarbeit-digitalisieren-checkliste.md) – mit konkreten Prüffragen, Datenschutzgrenzen und menschlichen Freigaben; keine echten Patienten- oder Kundendaten.
+
+### 2. Einen konkreten Prozess systematisch bewerten
 
 [**CERBERRUS Operational X-Ray – deutsches Workflow Workbook (€29) →**](https://smokycharly.gumroad.com/l/cyrada?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_xray_q4_2026&utm_content=workbook)
 
