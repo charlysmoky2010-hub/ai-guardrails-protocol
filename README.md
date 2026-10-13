@@ -2,6 +2,16 @@
 
 > **A small, free, MIT-licensed research prototype for one rule: A CLAIM IS NOT EVIDENCE.** It does not authenticate source claims or provide production security certification.
 
+## 🌐 Dienstleistungen jetzt direkt anfragen
+
+**[CERBERRUS144 Services – öffentliche Angebotsseite öffnen](https://faint-cipher-9q5qgja.shipstatic.com/)**
+
+- **Quellenbasierter Recherche-Brief:** ab 79 € für eine klar abgegrenzte Recherche mit Quellenliste
+- **Büroablauf-Check:** 99 € für 30 Minuten Gespräch und eine kurze Ergebnisnotiz
+- **Kontakt:** [cerberrus144-os@agentmail.to](mailto:cerberrus144-os@agentmail.to)
+
+Die Kontaktseite eröffnet nur eine E-Mail im Mailprogramm des Besuchers; sie nimmt keine Zahlungen an und erzeugt ohne aktives Versenden keine Kundenanfrage. Auftragsannahme erst nach individueller Prüfung und Zustimmung. **Das ist eine veröffentlichte Angebotsseite, kein Beleg für zahlende Kunden.**
+
 ## 🔎 Wir übernehmen konkrete Recherche- und Büroaufgaben
 
 **Neuer Schwerpunkt: Dienstleistungen statt KI-Produktverkauf.** Wir prüfen einen bestehenden Verwaltungsablauf, dokumentieren konkrete Verbesserungen oder recherchieren ein eng begrenztes Geschäftsthema – ohne neue Software und ohne Zugriff auf vertrauliche Daten.
