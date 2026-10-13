@@ -12,7 +12,7 @@ MCP, n8n, API-Workflows oder autonome Agenten? Prüfe zuerst **Zugriffsrechte, m
 
 Die acht Fragen liefern eine erste Orientierung, **keinen** belastbaren Sicherheits- oder Compliance-Nachweis. KI-Risiken und wirtschaftliche Automatisierbarkeit müssen separat geprüft werden.
 
-### 2. Einen konkreten Prozess systematisch bewerten
+**Praxisbeispiel für kleine Betreuungsdienste:** [7-Punkte-Checkliste zur Digitalisierung von Büroanfragen (kostenlos)](docs/betreuungsdienst-bueroarbeit-digitalisieren-checkliste.md) – mit konkreten Prüffragen, Datenschutzgrenzen und menschlichen Freigaben; keine echten Patienten- oder Kundendaten.\n\n### 2. Einen konkreten Prozess systematisch bewerten
 
 [**CERBERRUS Operational X-Ray – deutsches Workflow Workbook (€29) →**](https://smokycharly.gumroad.com/l/cyrada?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_xray_q4_2026&utm_content=workbook)
 
