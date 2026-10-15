@@ -1,0 +1,4 @@
+# CERBERRUS144 public website — search crawler directives
+User-agent: *
+Allow: /
+Sitemap: https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/sitemap.xml
