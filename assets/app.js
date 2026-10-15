@@ -4,7 +4,7 @@ let recolor=()=>{};
 if(stage&&canvas){let gl;try{gl=canvas.getContext('webgl',{antialias:true,alpha:true,powerPreference:'low-power'})}catch(e){}
 const fallback=()=>{canvas.style.display='none';const el=$('stage-fallback');if(el)el.style.display='block';if(toggle)toggle.hidden=true;};
 if(!gl)fallback();else try{
-const vert='attribute vec3 pos;attribute vec3 nrm;uniform float yaw,pitch,aspect;varying vec3 vn;varying vec3 vp;void main(){float cy=cos(yaw),sy=sin(yaw),cx=cos(pitch),sx=sin(pitch);vec3 p=vec3(pos.x*cy+pos.z*sy,pos.y,-pos.x*sy+pos.z*cy);p=vec3(p.x,p.y*cx-p.z*sx,p.y*sx+p.z*cx);vec3 n=vec3(nrm.x*cy+nrm.z*sy,nrm.y,-nrm.x*sy+nrm.z*cy);n=vec3(n.x,n.y*cx-n.z*sx,n.y*sx+n.z*cx);vn=normalize(n);vp=p;float z=4.7-p.z;gl_Position=vec4(p.x*2.25/aspect,p.y*2.25,z,z);}';
+const vert='attribute vec3 pos;attribute vec3 nrm;uniform float yaw,pitch,aspect;varying vec3 vn;varying vec3 vp;void main(){float cy=cos(yaw),sy=sin(yaw),cx=cos(pitch),sx=sin(pitch);vec3 p=vec3(pos.x*cy+pos.z*sy,pos.y,-pos.x*sy+pos.z*cy);p=vec3(p.x,p.y*cx-p.z*sx,p.y*sx+p.z*cx);vec3 n=vec3(nrm.x*cy+nrm.z*sy,nrm.y,-nrm.x*sy+nrm.z*cy);n=vec3(n.x,n.y*cx-n.z*sx,n.y*sx+n.z*cx);vn=normalize(n);vp=p;float z=4.7-p.z;gl_Position=vec4(p.x*2.25/aspect,p.y*2.25,z-1.0,z);}';
 const frag='precision mediump float;varying vec3 vn;varying vec3 vp;uniform float mode;void main(){vec3 n=normalize(vn);vec3 l=normalize(vec3(-.4,.8,1.5));float diffuse=max(dot(n,l),0.);float spec=pow(max(dot(reflect(-l,n),normalize(vec3(-vp.x,-vp.y,4.-vp.z))),0.),30.);float fres=pow(1.-max(dot(n,normalize(vec3(-vp.x,-vp.y,4.-vp.z))),0.),2.);vec3 c=mix(vec3(.15,.45,.55),vec3(.76,.99,.60),.55+.3*sin(vp.x*5.+vp.y*3.));if(mode>.5&&mode<1.5)c=mix(c,vec3(1.,.31,.48),.7);if(mode>1.5)c=mix(c,vec3(1.,.80,.47),.7);c=c*(.21+diffuse*.75)+spec*.85+fres*c*.65;gl_FragColor=vec4(c,1.);}';
 function compile(type,src){const sh=gl.createShader(type);gl.shaderSource(sh,src);gl.compileShader(sh);if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(sh));return sh;}
 const prog=gl.createProgram();gl.attachShader(prog,compile(gl.VERTEX_SHADER,vert));gl.attachShader(prog,compile(gl.FRAGMENT_SHADER,frag));gl.linkProgram(prog);if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(prog));gl.useProgram(prog);
@@ -15,7 +15,7 @@ for(let k=0;k<3;k++)for(let i=0;i<N;i++)for(let j=0;j<M;j++){let u=i*2*Math.PI/N
 const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(verts),gl.STATIC_DRAW);
 for(const [name,off] of [['pos',0],['nrm',12]]){const loc=gl.getAttribLocation(prog,name);gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,3,gl.FLOAT,false,24,off);}
 const U={yaw:gl.getUniformLocation(prog,'yaw'),pitch:gl.getUniformLocation(prog,'pitch'),aspect:gl.getUniformLocation(prog,'aspect'),mode:gl.getUniformLocation(prog,'mode')};
-gl.enable(gl.DEPTH_TEST);gl.enable(gl.CULL_FACE);gl.cullFace(gl.BACK);
+gl.enable(gl.DEPTH_TEST);
 let reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches,paused=reduced||!!navigator.connection?.saveData,visible=true,frame=0,last=0,yaw=.35,pitch=.35,mode=0,drag=false,px=0,py=0;
 const sync=()=>{if(toggle){toggle.textContent=paused?'▶ Animation':'Ⅱ Pause';toggle.setAttribute('aria-pressed',String(paused))}};sync();
 function paint(t){frame=0;if(!visible||document.hidden)return;if(!paused&&t-last<36){frame=requestAnimationFrame(paint);return;}last=t;if(!paused)yaw+=.004;
