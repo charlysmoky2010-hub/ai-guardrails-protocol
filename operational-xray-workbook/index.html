@@ -37,6 +37,8 @@ ul{padding-left:22px;line-height:1.8}.muted{color:#586b75}.two{display:grid;grid
 footer{border-top:1px solid #dddcd5;padding:26px 0;margin-top:35px;background:white;font-size:.85rem;color:#4e6066}
 details{border-bottom:1px solid #dddfdd;padding:12px 0}summary{font-weight:700;cursor:pointer}details p{margin:8px 0 0;color:#52616b}
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","@id":"https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/operational-xray-workbook/#product","name":"CERBERRUS Operational X-Ray — Workflow Workbook (DE)","description":"Deutschsprachiges digitales Offline-Workbook zur Analyse eines wiederkehrenden Büroablaufs, mit Prozessaufnahme, Mensch-Regel-KI-Matrix, Pilot-Brief, Failure-Test und Entscheidungsscorecard. Keine Beratung, Automatisierung oder zertifizierte Prüfung.","category":"Digitales Arbeitsbuch","sku":"CERBERRUS-XRAY-DE-01","brand":{"@type":"Brand","name":"CERBERRUS144"},"url":"https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/operational-xray-workbook/","inLanguage":"de","additionalProperty":[{"@type":"PropertyValue","name":"Sprache","value":"Deutsch"},{"@type":"PropertyValue","name":"Lieferung","value":"Digitaler ZIP-Download mit 7 Arbeitsdateien"},{"@type":"PropertyValue","name":"Lizenz","value":"Interne Nutzung; kein Weiterverkauf"}],"offers":{"@type":"Offer","url":"https://gumroad.com/l/cyrada","price":"29.00","priceCurrency":"EUR","availability":"https://schema.org/OnlineOnly","eligibleRegion":{"@type":"Place","name":"Gemäß Verfügbarkeit im Gumroad-Checkout"},"seller":{"@type":"Organization","name":"CERBERRUS144"}}}</script>
+<link rel="alternate" type="application/json" title="Open product catalog" href="product.json">
 </head><body>
 <header class="top"><div class="shell"><a class="brand" href="../">CERBERRUS144 / WORKFLOW TOOLS</a><a class="navlink" href="../ki-workflow-selbstcheck/">Kostenloser 8-Fragen-Check →</a></div></header>
 <main><div class="shell">
@@ -107,7 +109,7 @@ details{border-bottom:1px solid #dddfdd;padding:12px 0}summary{font-weight:700;c
 <details><summary>Darf ich die Dateien weiterverkaufen?</summary><p>Nein. Die Produktlizenz ist für die interne Nutzung in einer Kundenorganisation vorgesehen; keine Weiterveräußerung.</p></details>
 </section>
 </div></main>
-<footer><div class="shell"><strong>CERBERRUS144</strong> · Verifizierbare Ergebnisse statt Erfolgsmeldungen · <a href="../">Hauptseite</a> · <a href="../ki-workflow-selbstcheck/">Kostenloser Selbstcheck</a> · <a href="https://vlgibwclecuhnnrgycnx.supabase.co/functions/v1/phi-nexus-public?page=imprint&amp;locale=de">Impressum</a><p>Diese Produktseite erfasst keine personenbezogenen Daten und setzt keine Analyse-Cookies. Nutzer klicken freiwillig auf den externen Gumroad-Checkout. Es werden keine Kunden, Umsätze oder unabhängigen Bewertungen erfunden.</p></div></footer>
+<footer><div class="shell"><strong>CERBERRUS144</strong> · Verifizierbare Ergebnisse statt Erfolgsmeldungen · <a href="../">Hauptseite</a> · <a href="../ki-workflow-selbstcheck/">Kostenloser Selbstcheck</a> · <a href="https://vlgibwclecuhnnrgycnx.supabase.co/functions/v1/phi-nexus-public?page=imprint&amp;locale=de">Impressum</a><p><a href="product.json">Öffentliche Produktdaten (JSON) für barrierefreie und agentenbasierte Produktsuche ↗</a></p><p>Diese Produktseite erfasst keine personenbezogenen Daten und setzt keine Analyse-Cookies. Nutzer klicken freiwillig auf den externen Gumroad-Checkout. Es werden keine Kunden, Umsätze oder unabhängigen Bewertungen erfunden.</p></div></footer>
 <script>
 (function(){
  "use strict";
@@ -126,6 +128,64 @@ details{border-bottom:1px solid #dddfdd;padding:12px 0}summary{font-weight:700;c
   result.hidden=false;
   result.textContent=chosen[0]+": "+chosen[1]+" Das ist nur ein kostenloser erster Hinweis, keine Diagnose.";
  });
+})();
+</script>
+<script>
+/* Experimental WebMCP: feature-detected, strictly read-only browser tools.
+   No origin trial token is injected. Tools only appear when a compatible
+   user browser exposes document.modelContext.registerTool().
+   External checkout remains a normal link requiring an intentional action.
+*/
+(function(){
+  "use strict";
+  var context=document.modelContext;
+  if(!context || typeof context.registerTool!=="function")return;
+  var publishedInfo=Object.freeze({
+    name:"CERBERRUS Operational X-Ray — Workflow Workbook (DE)",
+    language:"de",
+    price:{amount:29,currency:"EUR",note:"Publisher price; final checkout may vary by region, currency or taxes."},
+    format:"Digital ZIP download with seven German-language offline worksheets and interactive workbook.",
+    audience:"Small teams, assistants and office operations with one recurring workflow to evaluate.",
+    solves:["unclear handoffs","duplicate data entry","slow approvals","exception handling"],
+    includes:["process mapping","human/rule/AI decision matrix","pilot brief and failure test","decision scorecard","start guide and internal-use license"],
+    restrictions:["no implementation","no consulting","no earnings or efficiency guarantee","no reseller rights"],
+    sellerPage:"https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/operational-xray-workbook/",
+    catalogUrl:"https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/operational-xray-workbook/product.json",
+    checkoutPage:"https://gumroad.com/l/cyrada",
+    checkoutIsExternal:true,
+    purchaseCompleted:false
+  });
+  var suggestions=Object.freeze({
+    handoff:"Zuständigkeit und klare Übergabe zuerst definieren. Anzahl unbearbeiteter Fälle im nächsten Durchlauf zählen.",
+    duplication:"Doppelte Eingabestellen identifizieren; eine primäre Datenerfassung testen, bevor Automatisierung erwogen wird.",
+    approval:"Notwendige Freigaben von Warteschlangen trennen; Zeitmessung an zehn Fällen durchführen.",
+    exceptions:"Drei typische Ausnahmefälle dokumentieren und menschliche Eskalation festlegen."
+  });
+  var defs=[
+    {
+      name:"cerberrus_get_workbook_info",
+      description:"Read verified seller-authored descriptive details of the German CERBERRUS Operational X-Ray offline workbook, price and external checkout link. Never initiates payment or claims a purchase.",
+      inputSchema:{type:"object",properties:{},additionalProperties:false},
+      annotations:{readOnlyHint:true,consequentialHint:false},
+      execute:async function(){return JSON.stringify(publishedInfo);}
+    },
+    {
+      name:"cerberrus_get_workflow_tip",
+      description:"Retrieve a free, locally defined first-step suggestion for a common office workflow bottleneck. Advisory only; not a diagnostic, order, or recorded lead.",
+      inputSchema:{type:"object",properties:{bottleneck:{type:"string",enum:["handoff","duplication","approval","exceptions"]}},required:["bottleneck"],additionalProperties:false},
+      annotations:{readOnlyHint:true,consequentialHint:false},
+      execute:async function(args){
+        var key=typeof args?.bottleneck==="string"?args.bottleneck:"";
+        if(!Object.prototype.hasOwnProperty.call(suggestions,key))return JSON.stringify({error:"unsupported_bottleneck"});
+        return JSON.stringify({bottleneck:key,tip:suggestions[key],dataTransferred:false,paidAction:false,certification:false});
+      }
+    }
+  ];
+  defs.forEach(function(def){
+    try{
+      Promise.resolve(context.registerTool(def)).catch(function(){ /* unsupported experimental variant: keep human UI working */});
+    }catch(_err){/* unsupported experimental variant: keep human UI working */}
+  });
 })();
 </script>
 </body></html>
