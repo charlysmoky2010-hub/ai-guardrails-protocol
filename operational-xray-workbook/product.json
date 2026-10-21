@@ -1,0 +1,57 @@
+{
+  "schema": "cerberrus144.public_product.v1",
+  "updated_utc": "2026-10-21",
+  "source": "seller-authored public product description, not an independently validated review",
+  "product": {
+    "id": "cerberrus-operational-xray-de-v1",
+    "name": "CERBERRUS Operational X-Ray — Workflow Workbook (DE)",
+    "description": "German-language downloadable offline workbook for mapping one recurring office process, evaluating manual work versus rule-based automation versus limited AI, and defining a measurable pilot with failure safeguards.",
+    "language": "de",
+    "category": "digital downloadable self-service workbook",
+    "audience": [
+      "German-speaking small business owners",
+      "office managers",
+      "assistants",
+      "internal operations teams"
+    ],
+    "scenarios": [
+      "unclear handoffs",
+      "duplicate data entry",
+      "manual approval bottlenecks",
+      "exception handling"
+    ],
+    "files_count": 7,
+    "deliverable_format": "ZIP with German offline worksheets and interactive workbook",
+    "license": "Internal use in one customer organization. No resale.",
+    "limitations": [
+      "No personal consulting, software implementation, legal review, audited financial results, or compliance certification.",
+      "No guaranteed savings, revenue, or automatic AI execution.",
+      "Publisher price is 29 EUR; final Gumroad checkout may show currency conversion and applicable taxes."
+    ],
+    "listed_price": {
+      "amount": 29,
+      "currency": "EUR",
+      "price_type": "one-time",
+      "tax_included": "checkout-dependent"
+    },
+    "seller_page": "https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/operational-xray-workbook/",
+    "checkout_url": "https://gumroad.com/l/cyrada?utm_source=agent_catalog&utm_medium=public_json&utm_campaign=operational_xray_de",
+    "preview": "https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/operational-xray-workbook/#praxisbeispiel"
+  },
+  "capability": {
+    "publicly_browsable": true,
+    "json_access": "read-only",
+    "webmcp_available": "conditionally if user browser supports the experimental WebMCP API",
+    "supports_agent_information_lookup": true,
+    "supports_agent_workflow_tip": true,
+    "supports_agent_transaction": false,
+    "collects_buyer_data": false,
+    "guarantees_sales": false
+  },
+  "evidence_boundary": {
+    "offer_price_is_seller_claim": true,
+    "independent_buyer_purchases_verified": 0,
+    "sales_or_conversion_guaranteed": false,
+    "human_approval_required_for_purchase": true
+  }
+}
