@@ -41,7 +41,7 @@ Die acht Fragen liefern eine erste Orientierung, **keinen** belastbaren Sicherhe
 
 ### 2. Einen konkreten Prozess systematisch bewerten
 
-[**CERBERRUS Operational X-Ray – deutsches Workflow Workbook (€29) →**](https://smokycharly.gumroad.com/l/cyrada?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_xray_q4_2026&utm_content=workbook)
+[**CERBERRUS Operational X-Ray (€29) – Anwendung, kostenloses Beispiel und Kaufoption →**](https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/operational-xray-workbook/?utm_source=github&utm_medium=readme&utm_campaign=operational_xray_de)
 
 Offline-Arbeitsmaterial zur Beschreibung eines wiederkehrenden Prozesses, möglicher Engpässe, Prüfaufwände und Entscheidungskriterien **vor einer KI-Investition**. Digitales Selbstlernprodukt, keine persönliche Beratung. Zusätzliche Steuern werden gegebenenfalls im Gumroad-Checkout angezeigt.
 
