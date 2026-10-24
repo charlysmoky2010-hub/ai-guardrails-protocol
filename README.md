@@ -132,3 +132,13 @@ For teams who want to assess a real AI-enabled workflow, [PHI NEXUS offers a fre
 
 ## License
 MIT License. Copyright (c) 2026 Yusuf Sen / PHI-BRAIN Systems.
+
+## TITANIUS autonomous commercial and design workers
+
+This public, credential-free runner is the independent observer for the
+private TITANIUS/CERBERRUS parent brain. See
+[runner documentation](docs/TITANIUS_AUTONOMOUS_RUNNER.md),
+[the live persistent work queue](https://github.com/charlysmoky2010-hub/ai-guardrails-protocol/issues/1),
+and [the verified Lighthouse results](https://github.com/charlysmoky2010-hub/ai-guardrails-protocol/actions/runs/40073582153).
+Public site audits and task journaling function without ChatGPT or a paid LLM.
+They do not create sales or prove payments.
