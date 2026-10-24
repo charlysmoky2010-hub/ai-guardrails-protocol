@@ -1,0 +1,69 @@
+name: TITANIUS Public Runner — Autonomous Commerce
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */6 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'workflows/titanius_control_center.py'
+      - 'tests/test_titanius_control_center.py'
+      - 'config/titanius_control_center.v1.json'
+      - '.github/workflows/titanius-control-center.yml'
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: titanius-control-center
+  cancel-in-progress: false
+
+jobs:
+  independent-brain-cycle:
+    name: Evidence-based specialists and persistent task queue
+    runs-on: ubuntu-24.04
+    timeout-minutes: 9
+    steps:
+      - name: Checkout canonical source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Verify 8 specialist contracts offline
+        run: python3 -m unittest tests.test_titanius_control_center -v
+
+      - name: Run real public commerce and design checks, reconcile previous issue state
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 -m workflows.titanius_control_center \
+            --config config/titanius_control_center.v1.json \
+            --output runtime/control_center/latest.json \
+            --publish-issue
+
+      - name: Check immutable truth ledger and generated report
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path("runtime/control_center/latest.json").read_text())
+          assert len(data["agents"]) >= 7
+          assert len(data["sites"]) == 3
+          assert data["finance"]["verified_net_revenue_eur"] is None
+          assert data["finance"]["confirmed_deliveries"] is None
+          assert data["activity"]["external_payments"] == 0
+          assert data["activity"]["customer_messages"] == 0
+          assert data["activity"]["automatic_publishing"] == 0
+          print("Reality gate: PASS")
+          PY
+
+      - name: Keep independent runtime proof after ChatGPT session ends
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: titanius-commercial-brain-${{ github.run_number }}
+          path: runtime/control_center/latest.json
+          if-no-files-found: warn
+          retention-days: 30
