@@ -8,7 +8,9 @@ on:
     branches: [main]
     paths:
       - 'workflows/titanius_control_center.py'
+      - 'workflows/marketing_brain.py'
       - 'tests/test_titanius_control_center.py'
+      - 'tests/test_marketing_brain.py'
       - 'config/titanius_control_center.v1.json'
       - '.github/workflows/titanius-control-center.yml'
 
@@ -32,7 +34,7 @@ jobs:
           persist-credentials: false
 
       - name: Verify 8 specialist contracts offline
-        run: python3 -m unittest tests.test_titanius_control_center -v
+        run: python3 -m unittest tests.test_titanius_control_center tests.test_marketing_brain -v
 
       - name: Run real public commerce and design checks, reconcile previous issue state
         env:
