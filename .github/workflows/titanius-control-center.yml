@@ -8,9 +8,11 @@ on:
     branches: [main]
     paths:
       - 'workflows/titanius_control_center.py'
+      - 'workflows/world_reach.py'
       - 'workflows/marketing_brain.py'
       - 'workflows/payment_delivery_gate.py'
       - 'tests/test_titanius_control_center.py'
+      - 'tests/test_world_reach.py'
       - 'tests/test_marketing_brain.py'
       - 'tests/test_payment_delivery_gate.py'
       - 'config/titanius_control_center.v1.json'
@@ -36,7 +38,7 @@ jobs:
           persist-credentials: false
 
       - name: Verify 8 specialist contracts offline
-        run: python3 -m unittest tests.test_titanius_control_center tests.test_marketing_brain tests.test_payment_delivery_gate -v
+        run: python3 -m unittest tests.test_titanius_control_center tests.test_marketing_brain tests.test_payment_delivery_gate tests.test_world_reach -v
 
       - name: Run real public commerce and design checks, reconcile previous issue state
         env:
@@ -55,6 +57,9 @@ jobs:
           data=json.loads(Path("runtime/control_center/latest.json").read_text())
           assert len(data["agents"]) >= 7
           assert len(data["sites"]) == 2
+          assert data["world_reach"]["total_pages"] == 7
+          assert data["world_reach"]["verified_paid_buyers"] is None
+          assert data["world_reach"]["external_actions"] == 0
           assert data["finance"]["verified_net_revenue_eur"] is None
           assert data["finance"]["confirmed_deliveries"] is None
           assert data["activity"]["external_payments"] == 0
