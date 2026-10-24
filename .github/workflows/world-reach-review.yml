@@ -1,0 +1,36 @@
+name: TITANIUS World Reach — Review Tests
+
+on:
+  push:
+    branches:
+      - feature/titanius-world-evidence-loop-20261024
+    paths:
+      - "workflows/world_reach.py"
+      - "workflows/titanius_control_center.py"
+      - "tests/test_world_reach.py"
+      - ".github/workflows/world-reach-review.yml"
+      - ".github/workflows/titanius-control-center.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "workflows/world_reach.py"
+      - "workflows/titanius_control_center.py"
+      - "tests/test_world_reach.py"
+      - ".github/workflows/titanius-control-center.yml"
+      - ".github/workflows/world-reach-review.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-world-reach:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Compile public worker
+        run: python3 -m compileall -q workflows
+      - name: Test reach decisions and existing evidence boundaries
+        run: python3 -m unittest tests.test_world_reach tests.test_titanius_control_center tests.test_marketing_brain tests.test_payment_delivery_gate -v
