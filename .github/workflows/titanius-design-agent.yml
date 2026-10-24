@@ -52,8 +52,10 @@ jobs:
           import json
           from pathlib import Path
           reports = []
-          for file in sorted(Path(".lighthouseci").glob("*.report.json")):
+          for file in sorted(Path(".lighthouseci").rglob("*.json")):
               data = json.loads(file.read_text(encoding="utf-8"))
+              if not isinstance(data, dict) or not data.get("lighthouseVersion") or not isinstance(data.get("categories"), dict):
+                  continue
               scores = {}
               for category in ("performance", "accessibility", "best-practices", "seo"):
                   raw = data.get("categories", {}).get(category, {}).get("score")
@@ -83,3 +85,4 @@ jobs:
             .lighthouseci
           if-no-files-found: warn
           retention-days: 30
+          include-hidden-files: true
