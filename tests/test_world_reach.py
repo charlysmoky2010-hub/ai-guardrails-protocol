@@ -1,5 +1,5 @@
 import unittest
-from workflows.world_reach import assess_world, BASE, LOCALES, read_owned_page
+from workflows.world_reach import assess_world, BASE, LOCALES, read_owned_page, DenyRedirects
 
 def valid(url):
     locale = next(locale for locale, path in LOCALES if BASE + path == url)
@@ -37,6 +37,9 @@ class WorldReachTests(unittest.TestCase):
         second = assess_world(valid, first)
         self.assertEqual(second["changed_public_surfaces"], 0)
         self.assertEqual(second["reflection"]["L5_learning_gate"], "BLOCKED_NO_OUTCOME_PAIRS")
+
+    def test_redirect_never_follows_off_domain(self):
+        self.assertIsNone(DenyRedirects().redirect_request(None, None, 302, "Found", {}, "https://example.com/"))
 
     def test_only_approved_urls(self):
         with self.assertRaises(ValueError):
