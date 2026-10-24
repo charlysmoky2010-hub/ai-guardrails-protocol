@@ -21,6 +21,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 from workflows.marketing_brain import audit_digital_offer
+from workflows.payment_delivery_gate import canary_result, request_invalid_checkout
 
 SCHEMA = "titanius.control_center.v1"
 ISSUE_TITLE = "[TITANIUS] Autonomous commercial control room"
@@ -158,7 +159,8 @@ def task(key: str, agent: str, priority: int, title: str, proof: str,
 
 
 def run_cycle(config: dict[str, Any], fetch: Callable[[str], dict[str, Any]],
-              previous: dict[str, Any] | None = None) -> dict[str, Any]:
+              previous: dict[str, Any] | None = None,
+              *, payment_canary: dict[str, Any] | None = None) -> dict[str, Any]:
     previous = previous if isinstance(previous, dict) and previous.get("schema") == "titanius.cycle.v1" else {}
     sites = [audit_site(site, fetch) for site in config["sites"]]
     pending = []
@@ -198,6 +200,17 @@ def run_cycle(config: dict[str, Any], fetch: Callable[[str], dict[str, Any]],
         "A paid customer's completed report download remains unverified",
         "No real paid Stripe session + completed entitlement + download receipt provided",
         "Require one real receipt-backed fulfillment event; never create a fake buyer."))
+    # Even a verified denial is NOT real delivery proof. Never confuse
+    # negative-path access safety with paid-session fulfillment evidence.
+    payment_canary = payment_canary if isinstance(payment_canary, dict) else {
+        "state": "not_checked", "invalid_receipt_rejected": False,
+        "actual_paid_delivery_verified": None,
+    }
+    if payment_canary.get("state") == "unverified_or_unsafe":
+        pending.append(task("invalid_receipt_guard_unverified", "security_brain", 100,
+            "MicroVault invalid receipt denial was not verified",
+            "One safe negative-path check did not return strict paid=false with denial status",
+            "Inspect the payment-verification endpoint; never disable authorization or buy test products."))
     pending.sort(key=lambda t: (-t["priority"], t["id"]))
 
     last_tasks = {t["id"]: t for t in previous.get("tasks", []) if isinstance(t, dict) and "id" in t}
@@ -220,7 +233,7 @@ def run_cycle(config: dict[str, Any], fetch: Callable[[str], dict[str, Any]],
     return {
         "schema": "titanius.cycle.v1", "brain": "TITANIUS_CERBERRUS",
         "checked_at": utc_now(), "agents": [a["id"] for a in config["agents"]],
-        "snapshot": snapshot, "sites": sites, "tasks": pending[:25],
+        "snapshot": snapshot, "sites": sites, "payment_canary": payment_canary, "tasks": pending[:25],
         "resolved_since_previous": resolved[:25], "changes": changes,
         "history": history, "cycles_observed": min(10000, int(previous.get("cycles_observed", 0)) + 1),
         "finance": {"verified_net_revenue_eur": None, "confirmed_paid_orders": None,
@@ -261,6 +274,7 @@ def issue_markdown(report: dict[str, Any]) -> str:
     lines.extend(["", "### Truth / memory gate",
         "- Revenue and paid delivery: **UNKNOWN**, no read-only authoritative financial feed. No fictional sales.",
         "- A working checkout CTA is **not** evidence of payment or file delivery.",
+        "- Invalid receipt denial (negative-path safety only): **" + str(report.get("payment_canary", {}).get("state", "not_checked")) + "**.",
         "- The website rubric scores observable metadata, **not** design taste, legal compliance or user conversions.",
         "- Changes from previous observation: " + str(len(report["changes"])) +
         "; resolved previously logged tasks: " + str(len(report["resolved_since_previous"])) + ".",
@@ -269,7 +283,7 @@ def issue_markdown(report: dict[str, Any]) -> str:
     ])
     # No secrets, user input, payment session IDs, PII, or raw HTML.
     compact = {key: report[key] for key in ("schema", "checked_at", "cycles_observed", "snapshot",
-               "tasks", "history", "finance")}
+               "tasks", "history", "finance", "payment_canary")}
     lines.append("<!-- " + STATE_MARK + json.dumps(compact, separators=(",", ":"), ensure_ascii=True) + " -->")
     return "\n".join(lines)[:60000]
 
@@ -329,12 +343,15 @@ def main() -> int:
         if not token or not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo):
             raise RuntimeError("GitHub issue state requires GITHUB_TOKEN and GITHUB_REPOSITORY")
         issue_number, prev = load_persisted_issue(token, repo)
-    report = run_cycle(cfg, fetch_public_site, prev)
+    # This request is to our own checkout verifier, using one intentionally
+    # invalid fixed test ID. No real payment, no seller write, no customer data.
+    gateway = canary_result(request_invalid_checkout)
+    report = run_cycle(cfg, fetch_public_site, prev, payment_canary=gateway)
     dest = Path(args.output)
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({"status": "measured", "agents": len(report["agents"]),
-        "sites": len(report["sites"]), "open_tasks": len(report["tasks"]),
+        "sites": len(report["sites"]), "checkout_guard": report["payment_canary"]["state"], "open_tasks": len(report["tasks"]),
         "verified_revenue": "unknown", "issue_published": bool(args.publish_issue)}))
     if args.publish_issue:
         result = persist_issue(token, repo, issue_number, report)
