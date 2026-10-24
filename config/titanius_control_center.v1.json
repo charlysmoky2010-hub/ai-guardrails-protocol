@@ -1,0 +1,96 @@
+{
+  "schema": "titanius.control_center.v1",
+  "brain": "TITANIUS_CERBERRUS",
+  "policy": {
+    "autonomy": "read_only_evidence_and_internal_issue_state",
+    "external_messages": false,
+    "payment_mutations": false,
+    "code_self_merge": false,
+    "customer_data": false,
+    "verified_revenue_without_provider": false
+  },
+  "cadence": "every_6_hours",
+  "sites": [
+    {
+      "id": "microvault_paid",
+      "owner": "commerce",
+      "url": "https://microvault.floot.app/csv-report-kaufen",
+      "required": [
+        "5 €",
+        "29 €",
+        "SMOKYCHARLY"
+      ],
+      "priority": 100
+    },
+    {
+      "id": "microvault_organic",
+      "owner": "distribution",
+      "url": "https://charlysmoky2010-hub.github.io/microvault/",
+      "required": [
+        "microvault.floot.app/csv-report-kaufen"
+      ],
+      "priority": 80
+    },
+    {
+      "id": "ai_app_rescue",
+      "owner": "commerce",
+      "url": "https://ebru-alaca-storefront.vercel.app/ai-app-rescue/",
+      "required": [
+        "AI",
+        "149"
+      ],
+      "priority": 75
+    }
+  ],
+  "agents": [
+    {
+      "id": "finance_intelligence",
+      "parent": "TITANIUS_CERBERRUS",
+      "action": "payment_truth",
+      "can_write": "internal_evidence_only",
+      "requires": "verified_payment_provider_source"
+    },
+    {
+      "id": "commerce_brain",
+      "parent": "finance_intelligence",
+      "action": "offer_health",
+      "can_write": "review_queue"
+    },
+    {
+      "id": "delivery_brain",
+      "parent": "finance_intelligence",
+      "action": "fulfillment_gap",
+      "can_write": "review_queue"
+    },
+    {
+      "id": "growth_brain",
+      "parent": "TITANIUS_CERBERRUS",
+      "action": "distribution_health",
+      "can_write": "review_queue"
+    },
+    {
+      "id": "design_brain",
+      "parent": "growth_brain",
+      "action": "design_quality",
+      "can_write": "review_queue"
+    },
+    {
+      "id": "security_brain",
+      "parent": "TITANIUS_CERBERRUS",
+      "action": "public_surface_safety",
+      "can_write": "review_queue"
+    },
+    {
+      "id": "learning_brain",
+      "parent": "TITANIUS_CERBERRUS",
+      "action": "compare_prior_runs",
+      "can_write": "internal_evidence_only"
+    },
+    {
+      "id": "operations_brain",
+      "parent": "TITANIUS_CERBERRUS",
+      "action": "scheduled_runtime",
+      "can_write": "internal_issue_state"
+    }
+  ]
+}
