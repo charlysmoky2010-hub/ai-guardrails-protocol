@@ -1,0 +1,85 @@
+name: TITANIUS Design Brain — Independent Lighthouse
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '29 7 * * 1'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/titanius-design-agent.yml'
+      - '.claude/skills/titanius-design-director/SKILL.md'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: titanius-public-web-design
+  cancel-in-progress: false
+
+jobs:
+  independent-web-quality:
+    name: Check real performance, accessibility and SEO
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout skill specification
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Node.js for open-source Lighthouse
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install free Lighthouse CI tooling
+        run: npm install --global @lhci/cli@0.15.x --no-audit --no-fund
+
+      - name: Real mobile web audit of the existing paid checkout funnel
+        run: |
+          lhci collect \
+            --numberOfRuns=1 \
+            --url=https://microvault.floot.app/csv-report-kaufen \
+            --url=https://charlysmoky2010-hub.github.io/microvault/ \
+            --settings.chromeFlags="--no-sandbox --disable-dev-shm-usage"
+
+      - name: Extract real Lighthouse evidence, never invent a 10/10
+        if: always()
+        run: |
+          mkdir -p runtime/design
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          reports = []
+          for file in sorted(Path(".lighthouseci").glob("*.report.json")):
+              data = json.loads(file.read_text(encoding="utf-8"))
+              scores = {}
+              for category in ("performance", "accessibility", "best-practices", "seo"):
+                  raw = data.get("categories", {}).get(category, {}).get("score")
+                  scores[category] = None if raw is None else round(float(raw) * 100)
+              reports.append({
+                  "url": data.get("finalUrl", data.get("requestedUrl")),
+                  "fetchTime": data.get("fetchTime"),
+                  "scores": scores,
+                  "lighthouse_version": data.get("lighthouseVersion"),
+                  "claim": "independent_lab_audit_not_business_conversion_or_aesthetic_quality",
+              })
+          result={"schema":"titanius.design_evidence.v1","reports":reports}
+          Path("runtime/design/lighthouse-summary.json").write_text(
+              json.dumps(result,indent=2)+"\n",encoding="utf-8")
+          print(json.dumps(result))
+          if not reports:
+              raise SystemExit("No actual Lighthouse result — no design success claim")
+          PY
+
+      - name: Archive before/after comparable mobile evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: titanius-lighthouse-${{ github.run_number }}
+          path: |
+            runtime/design/lighthouse-summary.json
+            .lighthouseci
+          if-no-files-found: warn
+          retention-days: 30
