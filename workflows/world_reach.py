@@ -23,13 +23,19 @@ LOCALES = (
 MAX_HTML = 160_000
 
 
+class DenyRedirects(urllib.request.HTTPRedirectHandler):
+    """Never follow a redirect outside the exact public audit URL."""
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
+
+
 def read_owned_page(url: str) -> dict[str, Any]:
     """Allowlisted GET only; no dynamic URLs, credentials or tracking."""
     if url not in {BASE + path for _, path in LOCALES}:
         raise ValueError("Outside explicitly owned page allowlist")
     req = urllib.request.Request(url, headers={"User-Agent": "TITANIUS-World-Reach/1.0"})
     try:
-        with urllib.request.urlopen(req, timeout=12) as response:
+        with urllib.request.build_opener(DenyRedirects()).open(req, timeout=12) as response:
             html = response.read(MAX_HTML).decode("utf-8", "replace")
             return {"status": response.status, "html": html}
     except urllib.error.HTTPError as exc:
