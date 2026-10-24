@@ -7,7 +7,9 @@
     "payment_mutations": false,
     "code_self_merge": false,
     "customer_data": false,
-    "verified_revenue_without_provider": false
+    "verified_revenue_without_provider": false,
+    "product_scope": "only_instant_self_serve_digital_goods",
+    "unpaid_human_customer_work": false
   },
   "cadence": "every_6_hours",
   "sites": [
@@ -30,16 +32,6 @@
         "microvault.floot.app/csv-report-kaufen"
       ],
       "priority": 80
-    },
-    {
-      "id": "ai_app_rescue",
-      "owner": "commerce",
-      "url": "https://ebru-alaca-storefront.vercel.app/ai-app-rescue/",
-      "required": [
-        "AI",
-        "149"
-      ],
-      "priority": 75
     }
   ],
   "agents": [
