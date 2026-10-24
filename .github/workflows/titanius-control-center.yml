@@ -54,7 +54,7 @@ jobs:
           from pathlib import Path
           data=json.loads(Path("runtime/control_center/latest.json").read_text())
           assert len(data["agents"]) >= 7
-          assert len(data["sites"]) == 3
+          assert len(data["sites"]) == 2
           assert data["finance"]["verified_net_revenue_eur"] is None
           assert data["finance"]["confirmed_deliveries"] is None
           assert data["activity"]["external_payments"] == 0
