@@ -21,6 +21,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 from workflows.marketing_brain import audit_digital_offer
+from workflows.world_reach import assess_world
 from workflows.payment_delivery_gate import canary_result, request_invalid_checkout
 
 SCHEMA = "titanius.control_center.v1"
@@ -271,6 +272,19 @@ def issue_markdown(report: dict[str, Any]) -> str:
         # sanitize delimiters to preserve the audit table.
         lines.append("| " + str(x["priority"]) + " | " + x["agent"] + " | " + x["status"] +
             " | " + x["title"].replace("|", "/") + " — " + x["evidence"].replace("|", "/") + " |")
+    world = report.get("world_reach")
+    if isinstance(world, dict):
+        lines.extend([
+            "",
+            "### International owned-page evidence (not visitors)",
+            "Reachable language pages: " + str(world["reachable_pages"]) + "/" + str(world["total_pages"]),
+            "Market decision: **" + str(world["decision"]) + "**",
+            "Unavailable locales: " + ", ".join(world["unreachable_locales"] or ["none observed"]),
+            "Locale/offer handoff gaps: " + ", ".join(world["metadata_or_handoff_gaps"] or ["none observed"]),
+            "Observed qualified visitors / international buyers: **UNKNOWN / UNKNOWN**.",
+            "Learning from actual market outcomes: **NOT PROVEN**.",
+            "Next step: " + str(world["next_action"]),
+        ])
     lines.extend(["", "### Truth / memory gate",
         "- Revenue and paid delivery: **UNKNOWN**, no read-only authoritative financial feed. No fictional sales.",
         "- A working checkout CTA is **not** evidence of payment or file delivery.",
@@ -284,6 +298,12 @@ def issue_markdown(report: dict[str, Any]) -> str:
     # No secrets, user input, payment session IDs, PII, or raw HTML.
     compact = {key: report[key] for key in ("schema", "checked_at", "cycles_observed", "snapshot",
                "tasks", "history", "finance", "payment_canary")}
+    if isinstance(report.get("world_reach"), dict):
+        w = report["world_reach"]
+        compact["world_reach"] = {
+            "schema": w["schema"], "pages": w["pages"], "decision": w["decision"],
+            "qualifying_visitors": None, "verified_paid_buyers": None,
+        }
     lines.append("<!-- " + STATE_MARK + json.dumps(compact, separators=(",", ":"), ensure_ascii=True) + " -->")
     return "\n".join(lines)[:60000]
 
@@ -347,6 +367,8 @@ def main() -> int:
     # invalid fixed test ID. No real payment, no seller write, no customer data.
     gateway = canary_result(request_invalid_checkout)
     report = run_cycle(cfg, fetch_public_site, prev, payment_canary=gateway)
+    # Observe existing public language pages; never infer customer demand from HTTP.
+    report["world_reach"] = assess_world(previous=prev.get("world_reach"))
     dest = Path(args.output)
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
