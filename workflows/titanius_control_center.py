@@ -20,6 +20,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
 
+from workflows.marketing_brain import audit_digital_offer
+
 SCHEMA = "titanius.control_center.v1"
 ISSUE_TITLE = "[TITANIUS] Autonomous commercial control room"
 STATE_MARK = "TITANIUS_CONTROL_STATE_V1:"
@@ -127,7 +129,7 @@ def audit_site(site: dict[str, Any], fetch: Callable[[str], dict[str, Any]]) -> 
     info["owner"] = site["owner"]
     # Rubric measures only *checkable on-page signals*, never human design taste.
     if not result.get("ok"):
-        info.update({"marker_results": {}, "rubric": {}, "score": None})
+        info.update({"marker_results": {}, "rubric": {}, "score": None, "marketing": {"checked": False, "missing": []}})
         return info
     markup = result.get("html", "")
     info["rubric"] = {
@@ -139,7 +141,8 @@ def audit_site(site: dict[str, Any], fetch: Callable[[str], dict[str, Any]]) -> 
         marker: html.unescape(marker).casefold() in html.unescape(markup).casefold()
         for marker in site.get("required", [])
     }
-    # The private HTML body stays in this job's memory and never enters issues.
+    info['marketing'] = audit_digital_offer(markup, site_id=site['id'])
+    # Raw HTML is not written to the persistent issue.
     return info
 
 
@@ -179,6 +182,12 @@ def run_cycle(config: dict[str, Any], fetch: Callable[[str], dict[str, Any]],
                 name + " measurable page metadata is incomplete",
                 "Missing: " + ", ".join(missing),
                 "Prepare accessible, source-backed SEO/AEO/design changes for review."))
+        marketing = result.get("marketing", {})
+        if marketing.get("checked") and marketing.get("missing"):
+            pending.append(task(name + ":marketing_offer", "growth_brain", 72,
+                name + " has checkable product-trust and purchase-copy gaps",
+                "Missing visible signals: " + ", ".join(marketing["missing"]),
+                "Prepare a truthful product-copy revision for review, never unsolicited outreach."))
     # Real provider data is unavailable to this runner; NEVER infer receipts
     # or delivery from payment links, traffic, sample CSVs, or hosted HTML.
     pending.append(task("provider_payment_evidence", "finance_intelligence", 95,
@@ -198,7 +207,9 @@ def run_cycle(config: dict[str, Any], fetch: Callable[[str], dict[str, Any]],
         entry["status"] = "blocked" if entry["permission"] == "review" else "open"
     previously_open = set(last_tasks)
     resolved = sorted(previously_open.difference(t["id"] for t in pending))
-    snapshot = {s["site_id"]: {"ok": s["ok"], "status": s["status"], "score": s["score"]}
+    snapshot = {s["site_id"]: {"ok": s["ok"], "status": s["status"], "score": s["score"],
+                "marketing_signals": s.get("marketing", {}).get("passing_signals"),
+                "marketing_total": s.get("marketing", {}).get("total_signals")}
                 for s in sites}
     prior_snapshot = previous.get("snapshot", {})
     changes = [{"site": key, "before": prior_snapshot.get(key), "after": value}
@@ -230,14 +241,16 @@ def issue_markdown(report: dict[str, Any]) -> str:
         "Successful cycles reflected in this persistent issue: **" + str(report["cycles_observed"]) + "**",
         "",
         "### Live observations",
-        "| Site | HTTP | Web rubric (not an aesthetic 10/10) | Required offer content |",
-        "|---|---|---|---|",
+        "| Site | HTTP | Web rubric (not an aesthetic 10/10) | Required offer content | Paid-offer trust signals |",
+        "|---|---|---|---|---|",
     ]
     for site in report["sites"]:
         markers = site["marker_results"]
         lines.append("| " + site["site_id"] + " | " + str(site["status"]) +
             " | " + (str(site["score"]) + "/100" if site["score"] is not None else "unknown") +
-            " | " + (str(sum(markers.values())) + "/" + str(len(markers)) if markers else "not evaluated") + " |")
+            " | " + (str(sum(markers.values())) + "/" + str(len(markers)) if markers else "not evaluated") +
+            " | " + (str(site["marketing"]["passing_signals"]) + "/" + str(site["marketing"]["total_signals"])
+                      if site.get("marketing", {}).get("checked") else "not evaluated") + " |")
     lines.extend(["", "### Active agent tasks", "| Priority | Agent | Status | Verified blocker / task |",
         "|---|---|---|---|"])
     for x in report["tasks"]:
