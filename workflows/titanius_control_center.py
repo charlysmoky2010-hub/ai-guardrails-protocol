@@ -55,14 +55,22 @@ def safe_url(url: str) -> str:
     return url
 
 
-class DenyRedirect(urllib.request.HTTPRedirectHandler):
+class SafeSameHostRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, request, fp, code, msg, headers, newurl):
-        return None
+        # A canonical HTTPS path redirect is not a website outage. Follow only
+        # within the same explicitly approved hostname; never leak to third parties.
+        try:
+            safe_url(newurl)
+            if urllib.parse.urlsplit(newurl).hostname != urllib.parse.urlsplit(request.full_url).hostname:
+                return None
+        except ValueError:
+            return None
+        return super().redirect_request(request, fp, code, msg, headers, newurl)
 
 
 def fetch_public_site(url: str) -> dict[str, Any]:
     safe_url(url)
-    opener = urllib.request.build_opener(DenyRedirect)
+    opener = urllib.request.build_opener(SafeSameHostRedirect)
     request = urllib.request.Request(url, headers={
         "User-Agent": "TITANIUS-ReadOnly-Website-QA/1.0",
         "Accept": "text/html",
