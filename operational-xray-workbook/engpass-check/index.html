@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kostenloser 10-Minuten Büro-Engpass-Check | CERBERRUS144</title>
+<meta name="description" content="Kostenloses, druckbares Arbeitsblatt: Einen Büroprozess anhand von fünf Fällen untersuchen – ohne Login und ohne Upload von Kundendaten.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/operational-xray-workbook/engpass-check/">
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:#173138;background:#f5f7f5}
+*{box-sizing:border-box}body{margin:0}main{max-width:900px;margin:auto;padding:24px}
+h1{font-size:clamp(1.8rem,5vw,3rem);line-height:1.1;margin:.5rem 0}h2{font-size:1.3rem;margin:22px 0 12px}p{line-height:1.55}
+.header{background:#113139;color:#fff;padding:24px;border-radius:14px 14px 0 0}
+.eyebrow{font-size:.75rem;font-weight:750;letter-spacing:.13em;color:#b6dcda}
+.sheet{padding:24px;background:#fff;border:1px solid #dde7e4;border-radius:14px;margin-bottom:18px;box-shadow:0 3px 18px #1233}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+label{display:block;font-weight:700;font-size:.9rem;margin-bottom:4px}
+input,textarea{font:inherit;border:1px solid #aabbb8;border-radius:6px;min-height:40px;padding:8px;width:100%;background:#fff;color:#173138}
+input:focus-visible,textarea:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid #dcba52;outline-offset:2px}
+.small{font-size:.84rem;color:#566b70}
+table{border-collapse:collapse;width:100%;margin:12px 0;table-layout:fixed}
+th{background:#113139;color:#fff;padding:10px 5px;font-size:.83rem}td{border:1px solid #cadad6;text-align:center;padding:5px}td input{min-height:34px;text-align:center;padding:5px}
+th:first-child{width:42px} td:first-child{font-weight:700;background:#ecf4f1}
+button,.button{background:#087b78;color:#fff;border:0;border-radius:8px;padding:13px 19px;font-weight:750;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block}
+.secondary{background:#e0f2ee;color:#164a47}.controls{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 22px}.highlight{padding:15px;border-radius:10px;background:#e7f5f1}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:12px}.checks label{display:flex;align-items:center;gap:8px;font-weight:500}.checks input{width:19px;min-height:19px}
+.note{border-left:4px solid #078782;padding:10px 14px;background:#eef8f4}
+a{color:#026f74}
+.foot{font-size:.8rem;color:#617176;border-top:1px solid #bdcfca;margin-top:20px;padding-top:10px}
+@media(max-width:610px){.grid,.checks{grid-template-columns:1fr}.sheet{padding:14px}th{font-size:.7rem;padding:7px 1px}td{padding:2px}td input{font-size:.83rem}}
+@page{size:A4;margin:12mm}
+@media print{body{background:#fff;font-size:10.5pt}main{max-width:none;padding:0}.sheet{border:0;box-shadow:none;break-after:page;padding:0;margin:0}.header{border-radius:0;padding:15px;margin-bottom:10px}h1{font-size:23pt}h2{font-size:14pt;margin:15px 0 8px}.controls,.no-print{display:none!important}input,textarea{border:0;border-bottom:1px solid #aabbb8;border-radius:0;padding:4px;height:30px;min-height:30px;print-color-adjust:exact}.checks input{border:1px solid #333}.highlight,th,.header{print-color-adjust:exact;-webkit-print-color-adjust:exact}.foot{font-size:8pt}}
+</style>
+</head>
+<body>
+<main>
+<div class="controls no-print"><button type="button" onclick="window.print()">Drucken / als PDF speichern</button><a class="button secondary" href="../">Workbook für 29 € ansehen</a></div>
+<section class="sheet" aria-label="Arbeitsblatt Seite 1">
+<div class="header"><div class="eyebrow">CERBERRUS144 / WORKFLOW TOOLS</div><h1>10-MINUTEN BÜRO-ENGPASS-CHECK</h1><p>Ein Prozess. Fünf Fälle. Eine klare nächste Entscheidung.</p></div>
+<h2>1 · Den Ablauf festlegen</h2>
+<div class="grid"><div><label for="prozess">Wiederkehrender Prozess</label><input id="prozess" placeholder="z. B. Kundenanfrage bearbeiten"></div><div><label for="rolle">Verantwortliche Rolle</label><input id="rolle" placeholder="z. B. Bürokoordination"></div><div><label for="anzahl">Häufigkeit</label><input id="anzahl" placeholder="z. B. 20 Fälle/Woche"></div></div>
+<h2>2 · Fünf reale Fälle ohne Personendaten beobachten</h2>
+<p class="small">Nur Minuten: Bearbeitung = aktive Arbeit; Warten = Leerlauf/Übergabe; Nacharbeit = Fehlerkorrektur. Zeiten nicht doppelt zählen.</p>
+<table><thead><tr><th>Fall</th><th>Bearbeitung</th><th>Warten</th><th>Nacharbeit</th><th>Gesamt</th></tr></thead><tbody>
+<tr><td>1</td><td><input aria-label="Fall 1 Bearbeitung in Minuten" type="number" min="0" step="1" inputmode="numeric" class="m" data-row="1" data-kind="a"></td><td><input aria-label="Fall 1 Warten in Minuten" type="number" min="0" step="1" inputmode="numeric" class="m" data-row="1" data-kind="w"></td><td><input aria-label="Fall 1 Nacharbeit in Minuten" type="number" min="0" step="1" inputmode="numeric" class="m" data-row="1" data-kind="n"></td><td><output id="total1">—</output></td></tr>
+<tr><td>2</td><td><input aria-label="Fall 2 Bearbeitung in Minuten" type="number" min="0" step="1" inputmode="numeric" class="m" data-row="2" data-kind="a"></td><td><input aria-label="Fall 2 Warten in Minuten" type="number" min="0" step="1" inputmode="numeric" class="m" data-row="2" data-kind="w"></td><td><input aria-label="Fall 2 Nacharbeit in Minuten" type="number" min="0" step="1" inputmode="numeric" class="m" data-row="2" data-kind="n"></td><td><output id="total2">—</output></td></tr>
+<tr><td>3</td><td><input aria-label="Fall 3 Bearbeitung in Minuten" type="number" min="0" step="1" inputmode="numeric" class="m" data-row="3" data-kind="a"></td><td><input aria-label="Fall 3 Warten in Minuten" type="number" min="0" step="1" inputmode="numeric" class="m" data-row="3" data-kind="w"></td><td><input aria-label="Fall 3 Nacharbeit in Minuten" type="number" min="0" step="1" inputmode="numeric" class="m" data-row="3" data-kind="n"></td><td><output id="total3">—</output></td></tr>
+<tr><td>4</td><td><input aria-label="Fall 4 Bearbeitung in Minuten" type="number" min="0" step="1" inputmode="numeric" class="m" data-row="4" data-kind="a"></td><td><input aria-label="Fall 4 Warten in Minuten" type="number" min="0" step="1" inputmode="numeric" class="m" data-row="4" data-kind="w"></td><td><input aria-label="Fall 4 Nacharbeit in Minuten" type="number" min="0" step="1" inputmode="numeric" class="m" data-row="4" data-kind="n"></td><td><output id="total4">—</output></td></tr>
+<tr><td>5</td><td><input aria-label="Fall 5 Bearbeitung in Minuten" type="number" min="0" step="1" inputmode="numeric" class="m" data-row="5" data-kind="a"></td><td><input aria-label="Fall 5 Warten in Minuten" type="number" min="0" step="1" inputmode="numeric" class="m" data-row="5" data-kind="w"></td><td><input aria-label="Fall 5 Nacharbeit in Minuten" type="number" min="0" step="1" inputmode="numeric" class="m" data-row="5" data-kind="n"></td><td><output id="total5">—</output></td></tr>
+</tbody></table>
+<p class="highlight" id="summary" aria-live="polite">Summe Arbeit: — · Warten: — · Nacharbeit: —</p>
+<h2>3 · Engpass und Gegenmaßnahme auswählen</h2>
+<div class="checks"><label><input type="checkbox">Übergabe / Zuständigkeit</label><label><input type="checkbox">Doppelte Dateneingabe</label><label><input type="checkbox">Freigabe / Wartezeit</label><label><input type="checkbox">Ausnahmen / Fehler</label></div>
+<p><label for="massnahme">Ein einziger, zunächst manueller Verbesserungsschritt</label><input id="massnahme" placeholder="z. B. feste Zuständigkeit und zentraler Eingang"></p>
+<h2>4 · Vorher/Nachher-Prüfung festlegen</h2>
+<p class="small">Nächste Woche fünf vergleichbare Fälle erneut erfassen. Nur gemessene Differenzen berichten.</p>
+<div class="grid"><div><label for="metrik">Was wird gemessen?</label><input id="metrik" placeholder="z. B. Wartezeit je Anfrage"></div><div><label for="termin">Wann wird nachgemessen?</label><input id="termin" placeholder="Datum / Zeitraum"></div></div>
+<div class="foot">Kostenloses Arbeitsblatt. Keine Passwörter, Namen oder sensiblen Kundendaten eintragen. Keine Beratung, Zertifizierung oder garantierte Einsparung.</div>
+</section>
+<section class="sheet" aria-label="Arbeitsblatt Seite 2">
+<div class="header"><div class="eyebrow">CERBERRUS144 / WORKFLOW TOOLS</div><h1>Beispiel und nächste Entscheidung</h1><p>Fiktive Zahlen – keine echten Kundendaten.</p></div>
+<h2>5 · Beispiel: Kundenanfragen im kleinen Büro</h2>
+<table><thead><tr><th>Fall</th><th>Bearbeitung</th><th>Warten</th><th>Nacharbeit</th><th>Gesamt</th></tr></thead><tbody>
+<tr><td>1</td><td>15</td><td>30</td><td>5</td><td>50</td></tr><tr><td>2</td><td>12</td><td>20</td><td>0</td><td>32</td></tr><tr><td>3</td><td>18</td><td>40</td><td>10</td><td>68</td></tr><tr><td>4</td><td>12</td><td>25</td><td>3</td><td>40</td></tr><tr><td>5</td><td>13</td><td>15</td><td>2</td><td>30</td></tr>
+</tbody></table>
+<div class="highlight"><strong>Aktive Arbeit: 70 Min. · Warten: 130 Min. · Nacharbeit: 20 Min.</strong><p>Warteanteil der erfassten Gesamtzeit: 130 / 220 ≈ 59 %.</p></div>
+<h2>6 · Was lässt sich daraus ableiten?</h2>
+<p>Der größte beobachtete Engpass ist in diesem rein fiktiven Beispiel die Wartezeit. Vor einer KI-Anschaffung könnte das Team zunächst klare Zuständigkeiten und feste Übergabezeiten testen. Danach werden erneut fünf Fälle gemessen.</p>
+<div class="note"><strong>Nächster Schritt:</strong> Aus der Messung eine Entscheidung machen. Das deutschsprachige <strong>CERBERRUS Operational X-Ray Workbook</strong> enthält Prozessaufnahme, Mensch/Regel/KI-Matrix, Pilot-Brief, Fehlerprüfung und Scorecard.</div>
+<p class="no-print"><a class="button" href="../?utm_source=free_check&utm_medium=organic&utm_campaign=xray_first_sale_2026">Workbook für einmalig 29 € ansehen</a></p>
+<p class="small">Der Preis von 29 € ist der publizierte Angebotspreis; endgültiger Gesamtpreis und Steuern werden gegebenenfalls im Gumroad-Checkout angezeigt. Digitales Selbstlernprodukt, keine Beratung. Keine garantierte Zeitersparnis.</p>
+<p class="small no-print">Dieses Arbeitsblatt verarbeitet die Eingaben ausschließlich in Ihrem Browser und übermittelt sie nicht an CERBERRUS144. Mit „Drucken / als PDF speichern“ können Sie es für sich sichern.</p>
+<div class="foot">CERBERRUS144 · Kostenloses Beispiel und eigenständiges Arbeitsblatt · Keine Zertifizierung oder Einspargarantie.</div>
+</section>
+</main>
+<script>
+(function(){"use strict";
+const fields=[...document.querySelectorAll(".m")];
+function update(){
+let a=0,w=0,n=0,seen=false;
+for(let i=1;i<=5;i++){
+ const vals={};let has=false;
+ for(const k of ["a","w","n"]){const el=document.querySelector('[data-row="'+i+'"][data-kind="'+k+'"]');const v=el.value===""?0:Number(el.value);vals[k]=Number.isFinite(v)&&v>=0?v:0;if(el.value!=="")has=true;}
+ document.getElementById("total"+i).textContent=has?String(vals.a+vals.w+vals.n):"—";
+ if(has){seen=true;a+=vals.a;w+=vals.w;n+=vals.n;}
+}
+document.getElementById("summary").textContent=seen?"Summe Arbeit: "+a+" Min. · Warten: "+w+" Min. · Nacharbeit: "+n+" Min. · Gesamt: "+(a+w+n)+" Min.":"Summe Arbeit: — · Warten: — · Nacharbeit: —";
+}
+fields.forEach(x=>x.addEventListener("input",update));
+})();
+</script>
+</body></html>
