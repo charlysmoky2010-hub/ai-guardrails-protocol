@@ -33,6 +33,8 @@ MCP, n8n, API-Workflows oder autonome Agenten? Prüfe zuerst **Zugriffsrechte, m
 
 ### 1. Kostenlos beginnen
 
+**Neu – kostenloses 10-Minuten-Arbeitsblatt (DE):** [Einen Büro-Engpass anhand von fünf Fällen messen, direkt online ausfüllen und als PDF speichern](https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/operational-xray-workbook/engpass-check/?utm_source=github_readme&utm_medium=organic&utm_campaign=xray_first_sale_2026). Keine Anmeldung, kein Upload sensibler Kundendaten; keine zertifizierte Prüfung.
+
 [**KI-Workflow-Selbstcheck im Browser öffnen (8 Fragen) →**](https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/?utm_source=github&utm_medium=readme&utm_campaign=cerberrus_xray_q4_2026#selbstcheck)
 
 Die acht Fragen liefern eine erste Orientierung, **keinen** belastbaren Sicherheits- oder Compliance-Nachweis. KI-Risiken und wirtschaftliche Automatisierbarkeit müssen separat geprüft werden.
