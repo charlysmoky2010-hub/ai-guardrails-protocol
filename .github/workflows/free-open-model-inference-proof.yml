@@ -37,7 +37,7 @@ jobs:
           from transformers import AutoTokenizer, AutoModelForCausalLM
 
           torch.set_num_threads(2)
-          model_id = "Qwen/Qwen2.5-0.5B-Instruct"
+          model_id = "Qwen/Qwen2.5-1.5B-Instruct"
           print("PROOF_MODEL_ID=" + model_id, flush=True)
           print("PROOF_SOURCE_LICENSE=Apache-2.0", flush=True)
           print("PROOF_EXECUTION=public_github_standard_cpu_runner", flush=True)
