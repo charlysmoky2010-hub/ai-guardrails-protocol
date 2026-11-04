@@ -114,7 +114,7 @@ jobs:
               output=Path("/tmp/anatolian-studio-proved.png")
               download.save_as(output)
               raw=output.read_bytes()
-              assert raw[:8]==b"\\x89PNG\\r\\n\\x1a\\n"
+              assert raw[:8]==bytes.fromhex("89504e470d0a1a0a"), "invalid PNG magic"
               assert struct.unpack(">II",raw[16:24])==(1800,1200)
               assert len(raw)>25000, "PNG export suspiciously small"
               assert not errors, errors
