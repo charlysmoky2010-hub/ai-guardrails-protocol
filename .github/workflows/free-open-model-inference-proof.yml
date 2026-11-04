@@ -1,0 +1,95 @@
+name: Free open-model cloud inference proof (public runner)
+
+on:
+  push:
+    branches:
+      - experiment/free-qwen-cloud-inference-20261104
+    paths:
+      - ".github/workflows/free-open-model-inference-proof.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  cpu-open-weights:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      DO_NOT_TRACK: "1"
+    steps:
+      - name: Python CPU-only environment; no credentials
+        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.11"
+      - name: Install open inference libraries in this ephemeral runner
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check --no-cache-dir torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --disable-pip-version-check --no-cache-dir transformers==4.48.3 safetensors==0.5.3
+      - name: Generate text with actual Apache-2.0 open weights on the free public CPU runner
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os, time
+          import torch
+          from transformers import AutoTokenizer, AutoModelForCausalLM
+
+          torch.set_num_threads(2)
+          model_id = "Qwen/Qwen2.5-0.5B-Instruct"
+          print("PROOF_MODEL_ID=" + model_id, flush=True)
+          print("PROOF_SOURCE_LICENSE=Apache-2.0", flush=True)
+          print("PROOF_EXECUTION=public_github_standard_cpu_runner", flush=True)
+          print("PROOF_API_KEY_REQUIRED=false", flush=True)
+
+          tokenizer = AutoTokenizer.from_pretrained(
+              model_id, trust_remote_code=False, use_fast=True,
+          )
+          model = AutoModelForCausalLM.from_pretrained(
+              model_id,
+              torch_dtype=torch.float32,
+              trust_remote_code=False,
+              use_safetensors=True,
+          ).cpu().eval()
+
+          def ask(messages):
+              prompt = tokenizer.apply_chat_template(
+                  messages, tokenize=False, add_generation_prompt=True,
+              )
+              encoded = tokenizer([prompt], return_tensors="pt")
+              with torch.inference_mode():
+                  generated = model.generate(
+                      **encoded,
+                      max_new_tokens=110,
+                      do_sample=False,
+                      pad_token_id=tokenizer.eos_token_id,
+                  )
+              completion = tokenizer.decode(
+                  generated[0][encoded.input_ids.shape[-1]:],
+                  skip_special_tokens=True,
+              ).strip()
+              assert completion, "MODEL_GENERATED_EMPTY_ANSWER"
+              return completion[:1200]
+
+          task = (
+              "Türkçe yanıtla. Bir dijital mağazada 100 ödeme bağlantısı bulunuyor "
+              "ama doğrulanmış müşteri ve tahsilat yok. Sıfır reklam bütçesiyle "
+              "tek bir somut sonraki adım ne olmalı? Satış uydurma."
+          )
+          messages = [
+              {"role":"system","content":"Sen kanıtlara bağlı, dikkatli bir araştırma asistanısın. Gerçek ödeme kanıtı olmadan gelir iddia etme."},
+              {"role":"user","content":task},
+          ]
+          t0=time.monotonic()
+          first=ask(messages)
+          print("OPEN_MODEL_FIRST_RESPONSE_JSON="+json.dumps(first,ensure_ascii=False),flush=True)
+
+          messages.append({"role":"assistant","content":first})
+          messages.append({"role":"user","content":"Önceki önerini eleştir: kullanıcı yeni ürün ve kod istemiyor, bütçe sıfır. Tek bir uygulanabilir adımla yanıtı yeniden yaz. Tahsilat varmış gibi konuşma."})
+          second=ask(messages)
+          print("OPEN_MODEL_REVISED_RESPONSE_JSON="+json.dumps(second,ensure_ascii=False),flush=True)
+          print("OPEN_MODEL_INFERENCE_SECONDS="+str(round(time.monotonic()-t0,2)),flush=True)
+          print("OPEN_WEIGHTS_REAL_INFERENCE_PASS",flush=True)
+          print("NO_LIVE_DEPLOYMENT_NO_SALE_NO_API_PAYMENT",flush=True)
+          PY
