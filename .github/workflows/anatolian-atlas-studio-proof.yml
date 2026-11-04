@@ -84,6 +84,7 @@ jobs:
               assert page.title().startswith("Digital Ebru Marbling Studio")
               assert page.locator("#drop-count").inner_text()=="07 DROPS"
               canvas=page.locator("#marbling")
+              canvas.scroll_into_view_if_needed()
               before=canvas.evaluate("(e)=>e.toDataURL('image/png')")
               bounds=canvas.bounding_box()
               x=bounds["x"]+bounds["width"]*.50
