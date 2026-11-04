@@ -1,0 +1,129 @@
+name: Anatolian Atlas Digital Marbling Studio — Browser Proof
+
+on:
+  push:
+    branches:
+      - feature/anatolian-atlas-marbling-studio-20261104
+    paths:
+      - "anatolian-atlas/studio/**"
+      - ".github/workflows/anatolian-atlas-studio-proof.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  prove-studio:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - name: Checkout draft only; do not persist credentials
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Set up standard Python
+        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.11"
+      - name: Check code syntax and one canonical paid collection link
+        shell: bash
+        run: |
+          node --check anatolian-atlas/studio/studio.js
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          class Checker(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.ids=[]; self.links=[]; self.scripts=[]
+              def handle_starttag(self,tag,attrs):
+                  a=dict(attrs)
+                  if "id" in a:self.ids.append(a["id"])
+                  if tag=="a" and "href" in a:self.links.append(a["href"])
+                  if tag=="script" and "src" in a:self.scripts.append(a["src"])
+          source=Path("anatolian-atlas/studio/index.html").read_text()
+          p=Checker();p.feed(source)
+          assert len(p.ids)==len(set(p.ids)), "duplicate html ids"
+          assert "marbling" in p.ids and "download" in p.ids
+          assert p.scripts==["./studio.js"], p.scripts
+          assert p.links.count("https://ko-fi.com/s/8f756c2778")==2
+          assert "data-i18n" in source and 'lang="en"' in source
+          assert "https://schema.org" in source
+          assert all("buy.stripe.com" not in x for x in p.links)
+          css=Path("anatolian-atlas/studio/studio.css").read_text()
+          js=Path("anatolian-atlas/studio/studio.js").read_text()
+          assert "touch-action:none" in css
+          assert "setPointerCapture" in js
+          assert "toDataURL(\"image/png\")" in js
+          assert all(word not in js for word in ("fetch(", "XMLHttpRequest(", "localStorage.", "document.cookie", "sendBeacon("))
+          print("STUDIO_STATIC_NO_TRACKING_NO_PAYMENT_PASS")
+          PY
+      - name: Install free open-source browser test runtime (ephemeral only)
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.56.0
+          python -m playwright install chromium
+      - name: Test real canvas interaction, Turkish translation and image download in headless Chromium
+        shell: bash
+        run: |
+          python -m http.server 8765 --bind 127.0.0.1 >/tmp/anatolian-studio-http.log 2>&1 &
+          server=$!
+          trap 'kill "$server" 2>/dev/null || true' EXIT
+          python - <<'PY'
+          import struct
+          from pathlib import Path
+          from playwright.sync_api import sync_playwright
+          with sync_playwright() as p:
+              browser=p.chromium.launch(headless=True,args=["--no-sandbox"])
+              context=browser.new_context(accept_downloads=True,viewport={"width":1280,"height":960})
+              page=context.new_page()
+              errors=[]
+              page.on("pageerror",lambda e: errors.append(str(e)))
+              page.route("**/*",lambda route: route.continue_() if route.request.url.startswith("http://127.0.0.1:8765/") else route.abort())
+              page.goto("http://127.0.0.1:8765/anatolian-atlas/studio/",wait_until="networkidle")
+              assert page.title().startswith("Digital Ebru Marbling Studio")
+              assert page.locator("#drop-count").inner_text()=="07 DROPS"
+              canvas=page.locator("#marbling")
+              before=canvas.evaluate("(e)=>e.toDataURL('image/png')")
+              bounds=canvas.bounding_box()
+              x=bounds["x"]+bounds["width"]*.50
+              y=bounds["y"]+bounds["height"]*.50
+              page.mouse.click(x,y)
+              assert page.locator("#drop-count").inner_text()=="08 DROPS"
+              after_drop=canvas.evaluate("(e)=>e.toDataURL('image/png')")
+              assert before != after_drop, "dropping did not change the canvas"
+              page.locator("#tool-comb").click()
+              page.mouse.move(x-100,y-40)
+              page.mouse.down()
+              page.mouse.move(x+130,y+90,steps=17)
+              page.mouse.up()
+              after_comb=canvas.evaluate("(e)=>e.toDataURL('image/png')")
+              assert after_comb != after_drop, "comb did not change pixels"
+              page.locator("#language").select_option("tr")
+              assert page.locator("h1").inner_text().startswith("Bırak, su")
+              assert page.locator("#drop-count").inner_text()=="08 DAMLA"
+              page.locator("#clear-pattern").click()
+              assert page.locator("#drop-count").inner_text()=="00 DAMLA"
+              page.locator("#new-pattern").click()
+              assert page.locator("#drop-count").inner_text()=="07 DAMLA"
+              with page.expect_download() as d:
+                  page.locator("#download").click()
+              download=d.value
+              assert download.suggested_filename=="anatolian-atlas-digital-water-study.png"
+              output=Path("/tmp/anatolian-studio-proved.png")
+              download.save_as(output)
+              raw=output.read_bytes()
+              assert raw[:8]==b"\\x89PNG\\r\\n\\x1a\\n"
+              assert struct.unpack(">II",raw[16:24])==(1800,1200)
+              assert len(raw)>25000, "PNG export suspiciously small"
+              assert not errors, errors
+              page.set_viewport_size({"width":375,"height":812})
+              assert page.locator("#download").is_visible()
+              width=page.evaluate("document.documentElement.scrollWidth")
+              assert width<=380, f"mobile horizontal overflow: {width}"
+              browser.close()
+          print("STUDIO_BROWSER_DROP_COMB_RESET_TR_DOWNLOAD_MOBILE_PASS")
+          print("STUDIO_DELIVERABLE=1800x1200 PNG")
+          print("STUDIO_COST=NO_PAID_API_NO_USER_DEVICE")
+          print("STUDIO_PUBLICATION=NOT_DEPLOYED_DRAFT_BRANCH")
+          PY
