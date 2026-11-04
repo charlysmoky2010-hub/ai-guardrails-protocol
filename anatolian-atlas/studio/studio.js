@@ -22,7 +22,7 @@
       paperTop:"ANATOLIAN ATLAS / EXPERIMENTAL PATTERN",paperBottom:"DIGITAL STUDY • NOT PHYSICAL EBRU",
       toolkit:"THE ARTIST'S TRAY",tool:"CHOOSE A TOOL",drop:"Drop",comb:"Comb",palette:"COLOUR STORY",
       iznik:"İznik blue",rose:"Rose garden",nocturne:"Night current",size:"DROP SIZE",
-      new:"✦ New composition",clear:"Clear the water",download:"Download your PNG",
+      new:"✦ New composition",clear:"Clear the water",download:"Download your PNG",savePinterest:"Save this studio on Pinterest ↗",
       status:"Try a drop. Every composition starts somewhere.",shortcut:"Keyboard: focus the water, move with arrow keys, and press Enter or Space to add a drop.",
       originTitle:"An old art form.<br><em>An endless beginning.</em>",
       origin:"Turkish Ebru is an art of pigments floated on specially prepared water and transferred to paper. This browser toy is an original digital interpretation of colour and movement — not the physical craft or a replacement for a handmade Ebru artwork.",
@@ -42,7 +42,7 @@
       paperTop:"ANATOLIAN ATLAS / EXPERIMENTELLES MUSTER",paperBottom:"DIGITALE STUDIE • KEIN PHYSISCHES EBRU",
       toolkit:"DIE FARBWERKSTATT",tool:"WERKZEUG WÄHLEN",drop:"Tropfen",comb:"Kamm",palette:"FARBWELT",
       iznik:"İznik-Blau",rose:"Rosengarten",nocturne:"Nachtströmung",size:"TROPFENGRÖSSE",
-      new:"✦ Neues Muster",clear:"Wasser leeren",download:"PNG herunterladen",
+      new:"✦ Neues Muster",clear:"Wasser leeren",download:"PNG herunterladen",savePinterest:"Dieses Studio auf Pinterest speichern ↗",
       status:"Probiere einen Tropfen. Jedes Muster beginnt irgendwo.",shortcut:"Tastatur: Wasser fokussieren, mit Pfeiltasten bewegen und mit Enter oder Leertaste einen Tropfen setzen.",
       originTitle:"Eine alte Kunstform.<br><em>Ein neuer Anfang.</em>",
       origin:"Türkisches Ebru entsteht, indem Pigmente auf speziell vorbereitetem Wasser schwimmen und auf Papier übertragen werden. Dieses Browser-Spiel ist eine freie digitale Interpretation von Farbe und Bewegung, keine Simulation des echten Handwerks.",
@@ -62,7 +62,7 @@
       paperTop:"ANATOLIAN ATLAS / DENEYSEL DESEN",paperBottom:"DİJİTAL ÇALIŞMA • GERÇEK EBRU DEĞİLDİR",
       toolkit:"SANATÇININ RENK TEPSİSİ",tool:"ARACI SEÇ",drop:"Damla",comb:"Tarak",palette:"RENK HİKÂYESİ",
       iznik:"İznik mavisi",rose:"Gül bahçesi",nocturne:"Gece akıntısı",size:"DAMLA BOYUTU",
-      new:"✦ Yeni kompozisyon",clear:"Suyu temizle",download:"PNG olarak indir",
+      new:"✦ Yeni kompozisyon",clear:"Suyu temizle",download:"PNG olarak indir",savePinterest:"Bu stüdyoyu Pinterest'te kaydet ↗",
       status:"Bir damla dene. Her kompozisyon bir yerden başlar.",shortcut:"Klavye: tuvali seç, oklarla hareket et; Enter veya Boşluk ile damla bırak.",
       originTitle:"Kadim bir sanat.<br><em>Sonsuz bir başlangıç.</em>",
       origin:"Türk ebrusu, özel olarak hazırlanmış su yüzeyinde yüzdürülen boyaların kâğıda aktarılması sanatıdır. Bu tarayıcı deneyimi renk ve hareketten esinlenen özgün bir dijital yorumdur; gerçek ebru yapımının veya el emeği bir eserin yerine geçmez.",
@@ -303,6 +303,18 @@
   document.querySelectorAll("[data-palette]").forEach(button=>
     button.addEventListener("click",()=>setPalette(button.dataset.palette))
   );
+  // Explicit user click only. No Pinterest JS, cookies, trackers or API calls.
+  // The image is the existing Anatolian Atlas cover (not a visitor's private PNG).
+  const pinterestShareBase = "https://www.pinterest.com/pin/create/button/";
+  const pinterestTarget = "https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/anatolian-atlas/studio/?utm_source=pinterest&utm_medium=organic&utm_campaign=aa_water_studio_v1";
+  const pinterestMedia = "https://static.metricool.com/planner/202611/7068536-file-2516177163958910896.jpeg";
+  const pinterestDescription = "Free digital Ebru-inspired marbling studio: drop colours, comb the water, and download your own PNG design. Explore Anatolian Atlas art and culture.";
+  const pinterestHref = pinterestShareBase
+    + "?url=" + encodeURIComponent(pinterestTarget)
+    + "&media=" + encodeURIComponent(pinterestMedia)
+    + "&description=" + encodeURIComponent(pinterestDescription);
+  $("pinterest-share").href = pinterestHref;
+
   newComposition();
   setLanguage("en");
 })();
