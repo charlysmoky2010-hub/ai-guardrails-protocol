@@ -4,8 +4,10 @@ on:
   push:
     branches:
       - feature/anatolian-atlas-marbling-studio-20261104
+      - feature/atlas-organic-discovery-20261104
     paths:
       - "anatolian-atlas/studio/**"
+      - "sitemap.xml"
       - ".github/workflows/anatolian-atlas-studio-proof.yml"
 
 permissions:
@@ -57,6 +59,16 @@ jobs:
           assert "setPointerCapture" in js
           assert "toDataURL(\"image/png\")" in js
           assert all(word not in js for word in ("fetch(", "XMLHttpRequest(", "localStorage.", "document.cookie", "sendBeacon("))
+          from xml.etree import ElementTree
+          sitemap=ElementTree.parse("sitemap.xml")
+          urls=[e.text for e in sitemap.findall(".//{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
+          studio_url="https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/anatolian-atlas/studio/"
+          assert urls.count(studio_url)==1, "studio missing or duplicated in sitemap"
+          assert 'rel="canonical" href="'+studio_url+'"' in source
+          assert 'id="pinterest-share"' in source and 'property="og:image"' in source
+          assert "pinterestShareBase" in js and "utm_source=pinterest" in js
+          assert "assets.pinterest.com/js/pinit.js" not in source
+          print("STUDIO_ORGANIC_DISCOVERY_SITEMAP_PIN_METADATA_PASS")
           print("STUDIO_STATIC_NO_TRACKING_NO_PAYMENT_PASS")
           PY
       - name: Install free open-source browser test runtime (ephemeral only)
@@ -103,6 +115,16 @@ jobs:
               page.locator("#language").select_option("tr")
               assert page.locator("h1").inner_text().startswith("Bırak, su")
               assert page.locator("#drop-count").inner_text()=="08 DAMLA"
+              pin=page.locator("#pinterest-share")
+              assert "Pinterest" in pin.inner_text()
+              href=pin.get_attribute("href")
+              assert href.startswith("https://www.pinterest.com/pin/create/button/")
+              assert "utm_source%3Dpinterest" in href
+              assert "7068536-file-2516177163958910896.jpeg" in href
+              assert "ko-fi.com" not in href, "Pinterest campaign should lead to studio, not checkout"
+              page.locator("#language").select_option("de")
+              assert "Pinterest speichern" in pin.inner_text()
+              page.locator("#language").select_option("tr")
               page.locator("#clear-pattern").click()
               assert page.locator("#drop-count").inner_text()=="00 DAMLA"
               page.locator("#new-pattern").click()
