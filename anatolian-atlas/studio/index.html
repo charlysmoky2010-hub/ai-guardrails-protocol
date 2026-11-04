@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5eee2">
+  <meta name="robots" content="index,follow">
+  <title>Digital Ebru Marbling Studio — Create Your Own Pattern | Anatolian Atlas</title>
+  <meta name="description" content="Create a free digital Ebru-inspired marbling pattern in your browser. Drop colours, comb the water, download your artwork. No login, uploads or tracking. Explore Anatolian Atlas original art prints.">
+  <link rel="canonical" href="https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/anatolian-atlas/studio/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Water remembers. Your pattern begins here. — Anatolian Atlas">
+  <meta property="og:description" content="A free, interactive digital marbling studio. Make something beautiful with colour and movement. No sign-up.">
+  <meta property="og:url" content="https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/anatolian-atlas/studio/">
+  <link rel="stylesheet" href="./studio.css">
+  <script src="./studio.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Anatolian Atlas Digital Ebru Marbling Studio","url":"https://charlysmoky2010-hub.github.io/ai-guardrails-protocol/anatolian-atlas/studio/","applicationCategory":"DesignApplication","operatingSystem":"Any browser","isAccessibleForFree":true,"inLanguage":["en","de","tr"],"description":"Free browser-based digital marbling play inspired by the Turkish art of Ebru. Not a simulation of physical Ebru.","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
+</head>
+<body>
+  <a class="skip-link" href="#studio">Skip to the studio</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#home" aria-label="Anatolian Atlas home">
+        <span class="brand-mark" aria-hidden="true">✳</span>
+        <span>ANATOLIAN <b>ATLAS</b><small>ART & CULTURE / WATER STUDIES</small></span>
+      </a>
+      <div class="header-actions">
+        <label class="language-select">
+          <span class="sr-only" data-i18n="langLabel">Language</span>
+          <select id="language" aria-label="Language">
+            <option value="en">EN</option>
+            <option value="de">DE</option>
+            <option value="tr">TR</option>
+          </select>
+        </label>
+        <a href="https://ko-fi.com/s/8f756c2778" class="header-collection" target="_blank" rel="noopener noreferrer" data-i18n="browse">Explore collection ↗</a>
+      </div>
+    </div>
+  </header>
+  <main id="home">
+    <section class="intro shell">
+      <div class="intro-copy">
+        <p class="eyebrow"><span class="star">✷</span> <span data-i18n="introTag">A LITTLE WATER, A WORLD OF COLOUR</span></p>
+        <h1 data-i18n-html="hero">Let the water <em>lead.</em></h1>
+        <p class="lead" data-i18n="intro">Discover the joy of colour in motion. Place drops, drag a comb through the water, and make a pattern that is entirely yours.</p>
+        <div class="intro-labels"><span data-i18n="free">FREE CREATIVE PLAY</span><i aria-hidden="true"></i><span data-i18n="private">NO ACCOUNT · NO UPLOADS</span></div>
+      </div>
+      <div class="intro-aside" aria-hidden="true"><span>01</span><span>WATER<br>STUDIES</span><span>∞</span></div>
+    </section>
+    <section class="workspace shell" id="studio" aria-labelledby="studio-title">
+      <div class="workspace-head">
+        <div><p class="eyebrow" data-i18n="workshop">INTERACTIVE WORKSHOP / NO. 01</p><h2 id="studio-title" data-i18n="workbenchTitle">Your digital water</h2></div>
+        <p data-i18n="workbenchHint">Tap to add a colour drop. Switch to the comb and drag to transform the surface.</p>
+      </div>
+      <div class="studio-grid">
+        <div class="paper-frame">
+          <div class="paper-top"><span data-i18n="paperTop">ANATOLIAN ATLAS / EXPERIMENTAL PATTERN</span><span>1800 × 1200 PX</span></div>
+          <canvas id="marbling" width="1800" height="1200" tabindex="0" role="img" aria-label="Editable, interactive digital marbling artwork. Click to drop pigment; use the Comb tool and drag to move the colours. Press Enter to add a drop at the keyboard cursor."></canvas>
+          <div class="paper-bottom"><span data-i18n="paperBottom">DIGITAL STUDY • NOT PHYSICAL EBRU</span><span id="drop-count" aria-live="polite">07 DROPS</span></div>
+        </div>
+        <aside class="control-panel" aria-label="Creative controls">
+          <div class="control-title"><span data-i18n="toolkit">THE ARTIST'S TRAY</span><span>✳</span></div>
+          <fieldset>
+            <legend><span class="control-index">01</span> <span data-i18n="tool">CHOOSE A TOOL</span></legend>
+            <div class="segmented" role="group" aria-label="Tool">
+              <button id="tool-drop" class="selected" type="button" aria-pressed="true"><span class="symbol">◉</span><span data-i18n="drop">Drop</span></button>
+              <button id="tool-comb" type="button" aria-pressed="false"><span class="symbol">≋</span><span data-i18n="comb">Comb</span></button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><span class="control-index">02</span> <span data-i18n="palette">COLOUR STORY</span></legend>
+            <div id="palettes" class="palette-options" role="group" aria-label="Colour palettes">
+              <button type="button" data-palette="iznik" class="palette-option selected" aria-pressed="true"><span class="palette-swatches"><i style="background:#133e64"></i><i style="background:#1d8598"></i><i style="background:#e5a344"></i><i style="background:#b74443"></i></span><span data-i18n="iznik">İznik blue</span><span class="check" aria-hidden="true">✓</span></button>
+              <button type="button" data-palette="rose" class="palette-option" aria-pressed="false"><span class="palette-swatches"><i style="background:#a33c63"></i><i style="background:#d97875"></i><i style="background:#d7aa69"></i><i style="background:#566f57"></i></span><span data-i18n="rose">Rose garden</span><span class="check" aria-hidden="true">✓</span></button>
+              <button type="button" data-palette="nocturne" class="palette-option" aria-pressed="false"><span class="palette-swatches"><i style="background:#152c4e"></i><i style="background:#52527a"></i><i style="background:#d6b875"></i><i style="background:#7f978d"></i></span><span data-i18n="nocturne">Night current</span><span class="check" aria-hidden="true">✓</span></button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><span class="control-index">03</span> <label for="drop-size" data-i18n="size">DROP SIZE</label></legend>
+            <div class="range-line"><input type="range" id="drop-size" min="35" max="190" value="110" step="5"><output id="drop-size-value" for="drop-size">110</output></div>
+          </fieldset>
+          <div class="actions">
+            <button id="new-pattern" class="action action-secondary" type="button"><span data-i18n="new">✦ New composition</span></button>
+            <button id="clear-pattern" class="action action-secondary" type="button"><span data-i18n="clear">Clear the water</span></button>
+            <button id="download" class="action action-primary" type="button"><span data-i18n="download">Download your PNG</span><span aria-hidden="true">↓</span></button>
+          </div>
+          <p id="studio-status" class="studio-status" role="status" aria-live="polite" data-i18n="status">Try a drop. Every composition starts somewhere.</p>
+          <p class="controls-note" data-i18n="shortcut">Keyboard: focus the water, move with arrow keys, and press Enter or Space to add a drop.</p>
+        </aside>
+      </div>
+    </section>
+    <section class="art-note shell">
+      <span class="note-number">02 / ART & ORIGIN</span>
+      <div>
+        <h2 data-i18n-html="originTitle">An old art form.<br><em>An endless beginning.</em></h2>
+        <p data-i18n="origin">Turkish Ebru is an art of pigments floated on specially prepared water and transferred to paper. This browser toy is an original digital interpretation of colour and movement — not the physical craft or a replacement for a handmade Ebru artwork.</p>
+      </div>
+    </section>
+    <section class="collection-band" id="collection">
+      <div class="shell collection-inner">
+        <div class="collection-art" aria-hidden="true"><div class="collection-orbit orbit-a"></div><div class="collection-orbit orbit-b"></div><div class="collection-orbit orbit-c"></div><span>INK<br>& WATER</span></div>
+        <div class="collection-copy">
+          <p class="eyebrow" data-i18n="premiumTag">FOR THE WALL / FOR THE HEART</p>
+          <h2 data-i18n-html="premiumTitle">Love the feeling?<br><em>Meet the art.</em></h2>
+          <p data-i18n="premiumBody">Explore Anatolian Atlas Ebru Studies Vol. 1: six digital art reproductions, printable JPGs, a collection guide and a personal-use licence. A curated collection, distinct from this free pattern maker.</p>
+          <div class="offer-row"><span data-i18n="price">€18+ · ONE-TIME DIGITAL COLLECTION</span><a href="https://ko-fi.com/s/8f756c2778" target="_blank" rel="noopener noreferrer" data-i18n="offerCta">Explore Ebru Studies Vol. 1 ↗</a></div>
+          <p class="fineprint" data-i18n="disclaimer">Checkout, price, taxes and delivery are determined by Ko-fi. Please confirm the listing before paying. This free studio does not process payments.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer shell"><p>✳ ANATOLIAN ATLAS <span data-i18n="footer">Art has no borders. Water remembers.</span></p><p data-i18n="privacyFooter">CREATED IN YOUR BROWSER · NO LOGIN · NO TRACKING</p></footer>
+</body>
+</html>
