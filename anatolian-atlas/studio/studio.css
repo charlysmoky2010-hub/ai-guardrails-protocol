@@ -75,6 +75,8 @@ legend{font-size:10px;font-weight:800;color:#5b6c61;letter-spacing:.12em;padding
 .action-primary{border:1px solid var(--ink);background:var(--ink);color:#fff;display:flex;justify-content:space-between;padding:12px 18px}
 .action-primary:hover{background:#355446}
 .action-primary span:last-child{font-size:20px}
+.studio-share{display:block;margin:12px 0 0;padding:11px 12px;border:1px solid #cabba9;color:#775949;background:transparent;text-align:center;text-decoration:none;font-size:12px;font-weight:700}
+.studio-share:hover{background:#ede6d8}
 .studio-status{color:#46786b;font-size:11px;font-weight:700;min-height:36px;line-height:1.5;margin:16px 0 0}
 .controls-note{color:#97968c;font-size:10px;line-height:1.6;margin:9px 0 0}
 .art-note{display:grid;grid-template-columns:29% minmax(0,690px);gap:35px;padding-bottom:112px;border-top:1px solid var(--line);padding-top:85px}
