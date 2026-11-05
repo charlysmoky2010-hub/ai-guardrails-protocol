@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2ecdf">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Anatolian Atlas — Anadolu sanatları için çok dilli kültürel keşif alanı: çini, ebru, dokuma, telkâri, minyatür, baskı, seramik ve daha fazlası.">
+  <title>Anatolian Atlas — Anadolu Sanatlarının Yaşayan Atlası</title>
+  <link rel="stylesheet" href="./atlas.css">
+  <script type="module" src="./atlas.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#explore">İçeriğe geç</a>
+<header class="masthead">
+  <div class="frame masthead-inner">
+    <a class="brand" href="./" aria-label="Anatolian Atlas ana sayfa">
+      <span class="brand-mark" aria-hidden="true">✳</span>
+      <span class="brand-text">ANATOLIAN <b>ATLAS</b><small>ART · CULTURE · MAKERS</small></span>
+    </a>
+    <nav class="topnav" aria-label="Ana gezinme">
+      <a href="#explore" data-i18n="navExplore">Sanatları keşfet</a>
+      <a href="#works" data-i18n="navWorks">Eserler</a>
+      <a href="./studio/" data-i18n="navStudio">Dijital atölye</a>
+      <a href="#makers" data-i18n="navMakers">Üreticiler için</a>
+    </nav>
+    <label class="lang-switch"><span class="sr" data-i18n="language">Dil</span>
+      <select id="lang" aria-label="Site language"><option value="tr">TR</option><option value="en">EN</option><option value="de">DE</option></select>
+    </label>
+  </div>
+</header>
+<main>
+<section class="hero frame">
+  <div class="hero-left">
+    <p class="eyebrow"><span class="spark">✳</span> <span data-i18n="eyebrow">BİR SANATIN DEĞİL, BİR KÜLTÜRÜN ATLASI</span></p>
+    <h1 data-i18n-html="hero">Geçmişi<br>koruyan.<br><em>Geleceği</em><br>dokuyan.</h1>
+    <p class="hero-lead" data-i18n="heroText">Ebru'dan çiniye, telkâriden minyatüre, kilimden ahşap baskıya. Anadolu'nun yaşayan sanatlarını keşfet; sanatçılarla doğrudan buluşan bir dünyanın temellerine katıl.</p>
+    <div class="actions">
+      <a class="primary-btn" href="#explore"><span data-i18n="exploreButton">Sanatları keşfet</span><span aria-hidden="true">↗</span></a>
+      <a class="secondary-btn" href="#makers"><span data-i18n="makerButton">Üretici olarak katıl</span><span aria-hidden="true">↗</span></a>
+    </div>
+    <p class="hero-foot" data-i18n="heroNote">Bağımsız kültürel keşif · Doğrulanmamış ürün veya üretici ilanı yok</p>
+  </div>
+  <div class="hero-art" aria-label="Anadolu sanatlarının soyut görsel yorumu" role="img">
+    <div class="art-panel art-panel-a"><span>EBRU</span><div class="marble" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+    <div class="art-panel art-panel-b"><span>ÇİNİ</span><div class="tile" aria-hidden="true">✥</div></div>
+    <div class="art-panel art-panel-c"><span>DOKUMA</span><div class="woven" aria-hidden="true"></div></div>
+    <p class="art-caption">01—∞ <span data-i18n="heroArt">KÜLTÜREL HARİTA / DİJİTAL YORUM</span></p>
+  </div>
+</section>
+<div class="divider-line"></div>
+<section class="intro-band frame">
+  <div><span class="stat-number">24</span><span data-i18n="statArts">SANAT DİSİPLİNİ</span></div>
+  <div><span class="stat-number">03</span><span data-i18n="statLang">DİL / TR · EN · DE</span></div>
+  <div><span class="stat-number">01</span><span data-i18n="statOffer">BAĞLANTISI DOĞRULANMIŞ ÜRÜN</span></div>
+  <p data-i18n="statCaption">Disiplin sayısı, satışa hazır eser veya onaylı üretici sayısı değildir.</p>
+</section>
+<section class="explore-section" id="explore">
+  <div class="frame">
+    <div class="section-header">
+      <div><p class="eyebrow" data-i18n="exploreKicker">KÜLTÜREL KEŞİF</p><h2 data-i18n-html="exploreTitle">Sanat bir <em>haritadır.</em></h2></div>
+      <p data-i18n="exploreLead">Geleneksel teknikleri araştır, ilgine göre süz. Her kart bir sanat dalıdır; satış ilanı değildir.</p>
+    </div>
+    <div class="filter-panel">
+      <label class="field search-field"><span data-i18n="searchLabel">Sanat veya teknik ara</span><input id="search" type="search" autocomplete="off" placeholder="Örn. dokuma, ebru, telkâri" maxlength="100"></label>
+      <label class="field"><span data-i18n="familyLabel">Malzeme / aile</span>
+        <select id="family">
+          <option value="all" data-i18n="allFamilies">Tüm sanat aileleri</option><option value="paper" data-i18n="paper">Kâğıt ve kitap</option>
+          <option value="ceramics" data-i18n="ceramics">Çini ve seramik</option><option value="textile" data-i18n="textile">Dokuma ve lif</option>
+          <option value="jewelry" data-i18n="jewelry">Takı ve telkâri</option><option value="wood" data-i18n="wood">Ahşap</option>
+          <option value="metal" data-i18n="metal">Metal</option><option value="glass" data-i18n="glass">Cam</option>
+          <option value="other" data-i18n="other">Diğer ustalıklar</option>
+        </select>
+      </label>
+      <label class="field"><span data-i18n="usageLabel">Ne için keşfediyorsun?</span>
+        <select id="use">
+          <option value="all" data-i18n="allUses">Tüm amaçlar</option><option value="wall" data-i18n="wall">Duvar / sanat</option>
+          <option value="home" data-i18n="home">Ev / mekân</option><option value="wear" data-i18n="wear">Giyilebilir sanat</option>
+          <option value="gift" data-i18n="gift">Hediye</option><option value="collect" data-i18n="collect">Koleksiyon</option>
+          <option value="learn" data-i18n="learn">Öğrenme</option>
+        </select>
+      </label>
+      <button id="reset" class="reset" type="button" data-i18n="clear">Filtreleri temizle ↺</button>
+    </div>
+    <div class="result-bar"><p id="count" aria-live="polite"></p><span data-i18n="catalogNotice">Kültürel dizin • İlan sayısı değildir</span></div>
+    <div id="craft-list" class="craft-grid" aria-live="polite"></div>
+    <div id="empty" class="empty" hidden><h3 data-i18n="noResults">Eşleşme bulunamadı.</h3><p data-i18n="noResultsBody">Başka bir sanat adı veya kullanım amacı deneyebilirsin.</p></div>
+  </div>
+</section>
+<section class="works-section frame" id="works">
+  <div class="section-header">
+    <div><p class="eyebrow" data-i18n="worksKicker">KANITLANMIŞ BAĞLANTI / KÜRASYON</p><h2 data-i18n-html="worksTitle">Eser ile <em>vaadi ayır.</em></h2></div>
+    <p data-i18n="worksLead">Yalnızca mevcut satış bağlantısını bildiğimiz koleksiyonları listeliyoruz. Ödeme, fiyat, vergi ve teslimat koşulları satıcı platformunda teyit edilmelidir.</p>
+  </div>
+  <div id="offer-container" class="offer-layout"></div>
+</section>
+<section class="atelier-promo">
+  <div class="frame atelier-grid">
+    <div><p class="eyebrow" data-i18n="studioKicker">DİJİTAL DENEYİM / ÜCRETSİZ</p><h2 data-i18n-html="studioTitle">Suyun içinde<br><em>ilk desenini</em> bırak.</h2><p data-i18n="studioLead">Tarayıcında renk damlat, tarağı gezdir ve oluşturduğun deseni PNG olarak indir. Bu, gerçek fiziksel Ebru üretimi değildir.</p><a class="primary-btn" href="./studio/"><span data-i18n="studioAction">Dijital Ebru atölyesini aç</span><span aria-hidden="true">↗</span></a></div>
+    <div class="atelier-illustration" aria-hidden="true"><div class="water-ring w1"></div><div class="water-ring w2"></div><div class="water-ring w3"></div><div class="water-ring w4"></div></div>
+  </div>
+</section>
+<section class="makers-section frame" id="makers">
+  <div class="section-header"><div><p class="eyebrow" data-i18n="makerKicker">USTA / SANATÇI / ÜRETİCİ</p><h2 data-i18n-html="makerTitle">Atlasın bir parçası<br><em>sen ol.</em></h2></div><p data-i18n="makerLead">Üretici ilanının ilk taslağını kendi tarayıcında oluştur. Kaydettiğin JSON sana aittir; henüz bir hesap açılmaz ve hiçbir şey yayımlanmaz.</p></div>
+  <div class="makers-layout">
+    <form id="maker-form" class="maker-form">
+      <label class="field"><span data-i18n="makerName">Sanatçı / atölye adı *</span><input id="maker-name" minlength="2" maxlength="100" required autocomplete="off"></label>
+      <label class="field"><span data-i18n="makerCraft">Sanat dalı *</span><select id="maker-craft" required></select></label>
+      <label class="field"><span data-i18n="makerCity">Şehir / bölge</span><input id="maker-city" maxlength="100" autocomplete="off"></label>
+      <label class="field"><span data-i18n="makerDesc">Eser ve üretim tekniğini anlat *</span><textarea id="maker-description" required minlength="20" maxlength="1000" rows="4"></textarea></label>
+      <label class="field"><span data-i18n="makerContact">İletişim (yalnızca taslak dosyana kaydedilir)</span><input id="maker-contact" maxlength="150" autocomplete="off"></label>
+      <div class="maker-bottom"><button type="submit" class="primary-btn"><span data-i18n="saveDraft">İlan taslağını indir</span><span aria-hidden="true">↓</span></button><p id="maker-status" role="status" aria-live="polite"></p></div>
+    </form>
+    <aside class="maker-note"><div class="note-star">✳</div><h3 data-i18n="makerNoteTitle">Önce sanat. Sonra güven.</h3><p data-i18n="makerNote">Kendi satışını veya başka üreticilerin eserlerini doğrulamadan ilan etmiyoruz. Platform henüz kamuya açık üretici hesabı, mesajlaşma veya ödeme aracılığı sunmuyor.</p><span class="note-foot" data-i18n="makerNoteFoot">İŞLEMLER YALNIZCA TARAYICINDA / SUNUCUYA GÖNDERİM YOK</span></aside>
+  </div>
+</section>
+</main>
+<footer class="footer"><div class="frame foot-grid"><div><div class="foot-logo">ANATOLIAN <b>ATLAS</b></div><p data-i18n="footerManifesto">Sanatın sınırı yok. Ustalığın hafızası var.</p></div><div><span data-i18n="footerDirectory">DİZİN</span><a href="#explore" data-i18n="navExplore">Sanatları keşfet</a><a href="#works" data-i18n="navWorks">Eserler</a><a href="./studio/" data-i18n="navStudio">Dijital atölye</a></div><div><span data-i18n="footerTrust">ŞEFFAFLIK</span><p data-i18n="footerHonesty">Üretici sayısı veya satış iddiası oluşturulmaz. Ko-fi harici ödeme alınmaz. Giriş bilgisi ve takip çerezi toplanmaz.</p></div></div><div class="frame footer-bottom"><span>© ANATOLIAN ATLAS · 2026</span><span>TR · EN · DE / <span data-i18n="footerStage">ÖN İNCELEME SÜRÜMÜ</span></span></div></footer>
+</body>
+</html>
